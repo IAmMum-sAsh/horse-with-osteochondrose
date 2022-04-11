@@ -20,5 +20,7 @@ public class Doctor extends BaseEntity{
     protected Long user_id;
     protected Long spec_id;
     @OneToMany
-    protected List<Week> weeks;
+    protected List<Record> records;
+
+
 }

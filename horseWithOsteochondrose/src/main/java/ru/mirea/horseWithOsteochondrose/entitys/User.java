@@ -26,6 +26,4 @@ public class User extends BaseEntity{
     protected List<Record> records;
     @OneToMany
     protected List<Record> history;
-
-
 }
