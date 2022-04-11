@@ -23,7 +23,7 @@ public class UserSignupController {
         if (userService.findByEmail(userDtoPayload.getEmail()).isPresent())
             throw new RuntimeException();
 
-        User registeredUser = userService.registerNewUser(userDtoPayload, "ROLE_WORKER");
+        User registeredUser = userService.registerNewUser(userDtoPayload, "ROLE_USER");
 
         return ResponseEntity.ok(new UserDto(registeredUser));
     }

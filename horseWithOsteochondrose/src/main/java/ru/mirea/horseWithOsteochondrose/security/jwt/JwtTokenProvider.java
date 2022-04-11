@@ -107,7 +107,7 @@ public class JwtTokenProvider {
                 .signWith(SignatureAlgorithm.HS256, secret)
                 .compact();
 
-//        refreshTokenRepository.save(new RefreshToken(userID, createdToken));
+        refreshTokenRepository.save(new RefreshToken(userID, createdToken));
         return createdToken;
     }
 
@@ -180,9 +180,9 @@ public class JwtTokenProvider {
         UUID UUIDFromRefreshToken = UUID.fromString(Jwts.parser().setSigningKey(secret).parseClaimsJws(refreshTokenString).getBody().getSubject());
 
         RefreshToken currentRefreshToken = new RefreshToken();
-//        RefreshToken currentRefreshToken = refreshTokenRepository.findById(refreshTokenString).orElseThrow(
-//                                        () -> {throw new IllegalArgumentException("No such refresh token");}
-//                                    );
+        currentRefreshToken = refreshTokenRepository.findById(refreshTokenString).orElseThrow(
+                                        () -> {throw new IllegalArgumentException("No such refresh token");}
+                                    );
 
         User subject = userService.findById(currentRefreshToken.getUser_id()).orElseThrow(IllegalArgumentException::new);
 
@@ -191,8 +191,8 @@ public class JwtTokenProvider {
         jwtAuthDto.setAccessToken(createAccessToken(subject));
         jwtAuthDto.setRefreshToken(createRefreshToken(subject.getId()));
 
-//        refreshTokenRepository.delete(currentRefreshToken);
-//        refreshTokenRepository.save(new RefreshToken(currentRefreshToken.getUser_id(), jwtAuthDto.getRefreshToken()));
+        refreshTokenRepository.delete(currentRefreshToken);
+        refreshTokenRepository.save(new RefreshToken(currentRefreshToken.getUser_id(), jwtAuthDto.getRefreshToken()));
 
         return jwtAuthDto;
     }
