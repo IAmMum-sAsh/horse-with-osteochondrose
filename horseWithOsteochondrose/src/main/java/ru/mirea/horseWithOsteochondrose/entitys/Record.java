@@ -19,7 +19,7 @@ public class Record extends BaseEntity{
     protected Long user_id;
     protected Long doctor_id;
     protected Long spec_id;
-    protected Date start_date;
+    protected Date date;
     protected String description;
     protected Long time_id;
 }

@@ -21,6 +21,4 @@ public class Doctor extends BaseEntity{
     protected Long spec_id;
     @OneToMany
     protected List<Record> records;
-
-
 }
