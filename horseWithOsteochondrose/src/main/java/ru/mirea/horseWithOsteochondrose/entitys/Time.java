@@ -7,19 +7,13 @@ import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import java.sql.Date;
 
 @Entity
-@Table(name = "records")
+@Table(name = "times")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Record extends BaseEntity{
-    protected Long user_id;
-    protected Long doctor_id;
-    protected Long spec_id;
-    protected Date start_date;
-    protected String description;
-    protected Long time_id;
+public class Time extends BaseEntity {
+    protected String time;
 }
