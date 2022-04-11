@@ -5,10 +5,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import ru.mirea.horseWithOsteochondrose.entitys.Doctor;
 import ru.mirea.horseWithOsteochondrose.entitys.User;
 import ru.mirea.horseWithOsteochondrose.repositories.UserRepository;
 import ru.mirea.horseWithOsteochondrose.security.payload.UserDtoPayload;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,6 +19,9 @@ import java.util.Optional;
 public class UserService {
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private DoctorService doctorService;
 
 //    @Autowired
     public BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
@@ -41,6 +46,9 @@ public class UserService {
 
         user.setEmail(userDtoPayload.getEmail());
         user.setUsername(userDtoPayload.getUsername());
+        user.setPolis(userDtoPayload.getPolis());
+        user.setHistory(new LinkedList<>());
+        user.setRecords(new LinkedList<>());
         user.setRole(role);
 
         String encodedPassword = bCryptPasswordEncoder.encode(userDtoPayload.getPassword());
@@ -51,10 +59,13 @@ public class UserService {
         return user;
     }
 
-    public User giveManage(User user){
-        user.setRole("ROLE_MANAGER");
+    public Doctor giveDoctor(User user, long spec_id){
+        user.setRole("ROLE_DOCTOR");
+        userRepository.save(user);
 
-        return userRepository.save(user);
+        Doctor doctor = doctorService.addNewDoctor(user, spec_id);
+
+        return doctor;
     }
 
     public User giveAdmin(User user){

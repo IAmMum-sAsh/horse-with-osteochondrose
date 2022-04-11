@@ -12,10 +12,12 @@ public class UserDto {
     private long id;
     private String email;
     private String username;
+    private String polis;
 
     public UserDto(User user) {
         this.id = user.getId();
         this.email = user.getEmail();
         this.username = user.getUsername();
+        this.polis = user.getPolis();
     }
 }
