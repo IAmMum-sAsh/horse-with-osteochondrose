@@ -10,18 +10,14 @@ import ru.mirea.horseWithOsteochondrose.dto.DoctorDto;
 import ru.mirea.horseWithOsteochondrose.dto.RecordDto;
 import ru.mirea.horseWithOsteochondrose.dto.SpecDto;
 import ru.mirea.horseWithOsteochondrose.entitys.Doctor;
-import ru.mirea.horseWithOsteochondrose.entitys.Record;
 import ru.mirea.horseWithOsteochondrose.entitys.Spec;
 import ru.mirea.horseWithOsteochondrose.entitys.User;
 import ru.mirea.horseWithOsteochondrose.repositories.DoctorRepository;
 import ru.mirea.horseWithOsteochondrose.repositories.SpecRepository;
-import ru.mirea.horseWithOsteochondrose.security.dto.UserDto;
 import ru.mirea.horseWithOsteochondrose.services.DoctorService;
 import ru.mirea.horseWithOsteochondrose.services.RecordService;
 import ru.mirea.horseWithOsteochondrose.services.UserService;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 

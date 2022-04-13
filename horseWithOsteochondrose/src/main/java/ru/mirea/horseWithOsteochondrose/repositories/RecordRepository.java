@@ -12,4 +12,7 @@ import java.util.List;
 public interface RecordRepository extends JpaRepository<Record, Long> {
     @Query("select b from Record b where b.date > :CURRENT_DATE and b.user_id = :user_id")
     List<Record> findUsersRecords(Date CURRENT_DATE, Long user_id);
+
+    @Query("select b from Record b where b.date = :onDate and b.doctor_id = :doctor_id")
+    List<Record> findDoctorsRecordsOnDay(Date onDate, Long doctor_id);
 }

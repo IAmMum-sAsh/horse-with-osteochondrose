@@ -4,7 +4,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.mirea.horseWithOsteochondrose.dto.RecordDto;
+import ru.mirea.horseWithOsteochondrose.dto.TimeDto;
 import ru.mirea.horseWithOsteochondrose.entitys.Record;
+import ru.mirea.horseWithOsteochondrose.entitys.Time;
 import ru.mirea.horseWithOsteochondrose.entitys.User;
 import ru.mirea.horseWithOsteochondrose.repositories.*;
 
@@ -31,16 +33,6 @@ public class RecordService {
     @Autowired
     protected SpecRepository specRepository;
 
-//    public Doctor addNewDoctor(User user, long spec_id){
-//        Doctor doctor = new Doctor();
-//
-//        doctor.setUser_id(user.getId());
-//        doctor.setSpec_id(spec_id);
-//        doctor.setRecords(new LinkedList<>());
-//
-//        return doctorRepository.save(doctor);
-//    }
-
     public List<RecordDto> findUsersRecords(User user) {
         Calendar calendar = Calendar.getInstance();
         java.util.Date currentDate = calendar.getTime();
@@ -54,5 +46,31 @@ public class RecordService {
                     timeRepository.findById(record.getTime_id()).get().getTime()));
         }
         return recordDtos;
+    }
+
+    public List<Record> findDoctorsRecordsOnDay(String date, Long doctor_id) {
+        Date onDate = Date.valueOf(date);
+        return recordRepository.findDoctorsRecordsOnDay(onDate, doctor_id);
+    }
+
+    public List<TimeDto> getEmptyRecords(String date, Long doctor_id){
+        List<Time> times = timeRepository.findAll();
+        List<TimeDto> timeDtos = new LinkedList<>();
+        for(Time time : times){
+            timeDtos.add(new TimeDto(time));
+        }
+
+        List<Record> records = this.findDoctorsRecordsOnDay(date, doctor_id);
+
+        for(Record record : records){
+            for(int i=0; i<timeDtos.size(); i++){
+                if(timeDtos.get(i).getId() == record.getTime_id()){
+                    timeDtos.remove(i);
+                    i--;
+                }
+            }
+        }
+
+        return timeDtos;
     }
 }
