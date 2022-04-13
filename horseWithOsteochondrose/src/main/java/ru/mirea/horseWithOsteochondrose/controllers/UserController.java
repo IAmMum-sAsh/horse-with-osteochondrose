@@ -6,13 +6,17 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import ru.mirea.horseWithOsteochondrose.dto.DoctorDto;
 import ru.mirea.horseWithOsteochondrose.dto.RecordDto;
 import ru.mirea.horseWithOsteochondrose.dto.SpecDto;
+import ru.mirea.horseWithOsteochondrose.entitys.Doctor;
 import ru.mirea.horseWithOsteochondrose.entitys.Record;
 import ru.mirea.horseWithOsteochondrose.entitys.Spec;
 import ru.mirea.horseWithOsteochondrose.entitys.User;
+import ru.mirea.horseWithOsteochondrose.repositories.DoctorRepository;
 import ru.mirea.horseWithOsteochondrose.repositories.SpecRepository;
 import ru.mirea.horseWithOsteochondrose.security.dto.UserDto;
+import ru.mirea.horseWithOsteochondrose.services.DoctorService;
 import ru.mirea.horseWithOsteochondrose.services.RecordService;
 import ru.mirea.horseWithOsteochondrose.services.UserService;
 
@@ -32,6 +36,12 @@ public class UserController {
 
     @Autowired
     protected SpecRepository specRepository;
+
+    @Autowired
+    protected DoctorRepository doctorRepository;
+
+    @Autowired
+    protected DoctorService doctorService;
 
     @GetMapping("/records")
     public ResponseEntity<List<RecordDto>> getMyRecords(){
@@ -58,8 +68,14 @@ public class UserController {
     }
 
     @GetMapping("/specs/{id}")
-    public ResponseEntity<List<SpecDto>> getSpecsDoctors(){
+    public ResponseEntity<List<DoctorDto>> getSpecsDoctors(@PathVariable long id){
+        List<DoctorDto> doctorDtos = new LinkedList<>();
+        List<Doctor> doctors = doctorRepository.findAllBySpecID(id);
 
-        return ResponseEntity.ok();
+        for(Doctor doctor : doctors){
+            doctorDtos.add(new DoctorDto(doctor.getId(), doctorService.doctorToUser(doctor).getUsername()));
+        }
+
+        return ResponseEntity.ok(doctorDtos);
     }
 }

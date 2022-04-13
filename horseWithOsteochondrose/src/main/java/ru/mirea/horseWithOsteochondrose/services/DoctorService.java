@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import ru.mirea.horseWithOsteochondrose.entitys.Doctor;
 import ru.mirea.horseWithOsteochondrose.entitys.User;
 import ru.mirea.horseWithOsteochondrose.repositories.DoctorRepository;
+import ru.mirea.horseWithOsteochondrose.repositories.UserRepository;
 import ru.mirea.horseWithOsteochondrose.security.payload.UserDtoPayload;
 
 import java.util.LinkedList;
@@ -16,6 +17,9 @@ public class DoctorService {
     @Autowired
     private DoctorRepository doctorRepository;
 
+    @Autowired
+    protected UserRepository userRepository;
+
     public Doctor addNewDoctor(User user, long spec_id){
         Doctor doctor = new Doctor();
 
@@ -24,5 +28,9 @@ public class DoctorService {
         doctor.setRecords(new LinkedList<>());
 
         return doctorRepository.save(doctor);
+    }
+
+    public User doctorToUser(Doctor doctor){
+        return userRepository.findById(doctor.getUser_id()).get();
     }
 }
