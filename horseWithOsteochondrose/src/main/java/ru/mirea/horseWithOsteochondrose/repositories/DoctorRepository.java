@@ -13,4 +13,7 @@ import java.util.List;
 public interface DoctorRepository extends JpaRepository<Doctor, Long> {
     @Query("select b from Doctor b where b.spec_id = :spec_id")
     List<Doctor> findAllBySpecID(Long spec_id);
+
+    @Query("select b from Doctor b where b.user_id = :user_id")
+    Doctor findByUser_id(Long user_id);
 }

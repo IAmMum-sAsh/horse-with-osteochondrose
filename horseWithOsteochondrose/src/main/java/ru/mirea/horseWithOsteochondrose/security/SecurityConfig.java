@@ -41,11 +41,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(AUTH_ENDPOINT).permitAll()
                 .antMatchers(SIGNUP_ENDPOINT).permitAll()
                 .antMatchers("/api/admin/**").hasRole("ADMIN")
+                .antMatchers("/api/doctor/**").hasRole("DOCTOR")
                 .antMatchers("/api/records").hasAnyRole("USER", "DOCTOR", "ADMIN")
                 .antMatchers("/api/specs").hasAnyRole("USER", "DOCTOR", "ADMIN")
                 .antMatchers("/api/specs/**").hasAnyRole("USER", "DOCTOR", "ADMIN")
                 .antMatchers("/api/doctors/**").hasAnyRole("USER", "DOCTOR", "ADMIN")
                 .antMatchers("/api/record/**").hasAnyRole("USER", "DOCTOR", "ADMIN")
+
 
                 .anyRequest().authenticated()
                 .and()
