@@ -22,4 +22,5 @@ public class Record extends BaseEntity{
     protected Date date;
     protected String description;
     protected Long time_id;
+    protected boolean state;
 }

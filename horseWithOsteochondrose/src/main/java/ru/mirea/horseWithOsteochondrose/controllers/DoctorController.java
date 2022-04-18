@@ -40,4 +40,10 @@ public class DoctorController {
         }
         return ResponseEntity.ok(recordDto);
     }
+
+    @PutMapping("/records/{id}/close")
+    public ResponseEntity<RecordDto> closeRecord(@PathVariable long id, @RequestBody DescriptionDto descriptionDto){
+        RecordDto recordDto = doctorService.closeRecord(id, descriptionDto);
+        return ResponseEntity.ok(recordDto);
+    }
 }

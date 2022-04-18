@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import ru.mirea.horseWithOsteochondrose.dto.DescriptionDto;
 import ru.mirea.horseWithOsteochondrose.dto.RecordDto;
 import ru.mirea.horseWithOsteochondrose.entitys.Doctor;
 import ru.mirea.horseWithOsteochondrose.entitys.Record;
@@ -70,5 +71,24 @@ public class DoctorService {
                     timeRepository.findById(record.getTime_id()).get().getTime()));
         }
         return recordDtos;
+    }
+
+    public RecordDto closeRecord(long record_id, DescriptionDto descriptionDto){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentUserName = authentication.getName();
+        User currentUser = userRepository.findByEmail(currentUserName).orElseThrow(
+                () -> {throw new RuntimeException("User not found");}
+        );
+
+        Record record = recordRepository.getById(record_id);
+        record.setDescription(descriptionDto.getDescription());
+        record.setState(false);
+        recordRepository.save(record);
+
+        RecordDto recordDto = new RecordDto(record, userRepository.findById(record.getUser_id()).get().getUsername(),
+                currentUser.getUsername(), userRepository.findById(record.getUser_id()).get().getPolis(),
+                specRepository.findById(record.getSpec_id()).get().getName(),
+                timeRepository.findById(record.getTime_id()).get().getTime());
+        return recordDto;
     }
 }

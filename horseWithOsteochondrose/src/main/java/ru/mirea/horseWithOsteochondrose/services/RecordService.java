@@ -91,7 +91,7 @@ public class RecordService {
         );
 
         Record record = new Record(currentUser.getId(), id, doctorRepository.findById(id).get().getSpec_id(),
-                recordDtoPayload.getDate(), "", recordDtoPayload.getTime_id());
+                recordDtoPayload.getDate(), "", recordDtoPayload.getTime_id(), true);
 
         recordRepository.save(record);
 
