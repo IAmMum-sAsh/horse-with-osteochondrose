@@ -2,9 +2,14 @@ package ru.mirea.horseWithOsteochondrose.services;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 import ru.mirea.horseWithOsteochondrose.dto.RecordDto;
+import ru.mirea.horseWithOsteochondrose.dto.RecordDtoPayload;
 import ru.mirea.horseWithOsteochondrose.dto.TimeDto;
+import ru.mirea.horseWithOsteochondrose.dto.TimeDtoPayload;
 import ru.mirea.horseWithOsteochondrose.entitys.Record;
 import ru.mirea.horseWithOsteochondrose.entitys.Time;
 import ru.mirea.horseWithOsteochondrose.entitys.User;
@@ -32,6 +37,9 @@ public class RecordService {
 
     @Autowired
     protected SpecRepository specRepository;
+
+    @Autowired
+    protected UserService userService;
 
     public List<RecordDto> findUsersRecords(User user) {
         Calendar calendar = Calendar.getInstance();
@@ -72,5 +80,64 @@ public class RecordService {
         }
 
         return timeDtos;
+    }
+
+
+    public RecordDto createRecord(long id, RecordDtoPayload recordDtoPayload){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentUserName = authentication.getName();
+        User currentUser = userService.findByEmail(currentUserName).orElseThrow(
+                () -> {throw new RuntimeException("User not found");}
+        );
+
+        Record record = new Record(currentUser.getId(), id, doctorRepository.findById(id).get().getSpec_id(),
+                recordDtoPayload.getDate(), "", recordDtoPayload.getTime_id());
+
+        recordRepository.save(record);
+
+        RecordDto recordDto = new RecordDto(record, currentUser.getUsername(),
+                userRepository.findById(doctorRepository.findById(record.getDoctor_id()).get().getUser_id()).get().getUsername(),
+                currentUser.getPolis(), specRepository.findById(record.getSpec_id()).get().getName(),
+                timeRepository.findById(record.getTime_id()).get().getTime());
+        return recordDto;
+    }
+
+    public RecordDto updateRecord(long id, RecordDtoPayload recordDtoPayload){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentUserName = authentication.getName();
+        User currentUser = userService.findByEmail(currentUserName).orElseThrow(
+                () -> {throw new RuntimeException("User not found");}
+        );
+
+        Record record = recordRepository.getById(id);
+        record.setDate(recordDtoPayload.getDate());
+        record.setTime_id(recordDtoPayload.getTime_id());
+
+        recordRepository.save(record);
+
+        RecordDto recordDto = new RecordDto(record, currentUser.getUsername(),
+                userRepository.findById(doctorRepository.findById(record.getDoctor_id()).get().getUser_id()).get().getUsername(),
+                currentUser.getPolis(), specRepository.findById(record.getSpec_id()).get().getName(),
+                timeRepository.findById(record.getTime_id()).get().getTime());
+        return recordDto;
+    }
+
+    public RecordDto deleteRecord(long id){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentUserName = authentication.getName();
+        User currentUser = userService.findByEmail(currentUserName).orElseThrow(
+                () -> {throw new RuntimeException("User not found");}
+        );
+
+        Record record = recordRepository.getById(id);
+
+        recordRepository.delete(record);
+
+        RecordDto recordDto = new RecordDto(record, currentUser.getUsername(),
+                userRepository.findById(doctorRepository.findById(record.getDoctor_id()).get().getUser_id()).get().getUsername(),
+                currentUser.getPolis(), specRepository.findById(record.getSpec_id()).get().getName(),
+                timeRepository.findById(record.getTime_id()).get().getTime());
+        recordDto.setDescription("*******Удалено*******");
+        return recordDto;
     }
 }

@@ -6,9 +6,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import ru.mirea.horseWithOsteochondrose.dto.DoctorDto;
-import ru.mirea.horseWithOsteochondrose.dto.RecordDto;
-import ru.mirea.horseWithOsteochondrose.dto.SpecDto;
+import ru.mirea.horseWithOsteochondrose.dto.*;
 import ru.mirea.horseWithOsteochondrose.entitys.Doctor;
 import ru.mirea.horseWithOsteochondrose.entitys.Spec;
 import ru.mirea.horseWithOsteochondrose.entitys.User;
@@ -73,5 +71,16 @@ public class UserController {
         }
 
         return ResponseEntity.ok(doctorDtos);
+    }
+
+    @PostMapping("/doctors/{id}")
+    public ResponseEntity<List<TimeDto>> getEmptyRecords(@PathVariable long id, @RequestBody TimeDtoPayload timeDtoPayload) {
+        List<TimeDto> timeDtos = recordService.getEmptyRecords(timeDtoPayload.getDate(), id);
+        return ResponseEntity.ok(timeDtos);
+    }
+
+    @PostMapping("/doctors/{id}/record")
+    public ResponseEntity<RecordDto> createRecord(@PathVariable long id, @RequestBody RecordDtoPayload recordDtoPayload) {
+        return ResponseEntity.ok(recordService.createRecord(id, recordDtoPayload));
     }
 }
