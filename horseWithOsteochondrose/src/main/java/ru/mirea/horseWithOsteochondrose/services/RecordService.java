@@ -10,6 +10,7 @@ import ru.mirea.horseWithOsteochondrose.dto.RecordDto;
 import ru.mirea.horseWithOsteochondrose.dto.RecordDtoPayload;
 import ru.mirea.horseWithOsteochondrose.dto.TimeDto;
 import ru.mirea.horseWithOsteochondrose.dto.TimeDtoPayload;
+import ru.mirea.horseWithOsteochondrose.entitys.Doctor;
 import ru.mirea.horseWithOsteochondrose.entitys.Record;
 import ru.mirea.horseWithOsteochondrose.entitys.Time;
 import ru.mirea.horseWithOsteochondrose.entitys.User;
@@ -48,10 +49,12 @@ public class RecordService {
         List<Record> records = recordRepository.findUsersRecords(date, user.getId());
         List<RecordDto> recordDtos = new LinkedList<>();
         for (Record record : records){
-            recordDtos.add(new RecordDto(record, user.getUsername(),
-                    userRepository.findById(doctorRepository.findById(record.getDoctor_id()).get().getUser_id()).get().getUsername(),
-                    user.getPolis(), specRepository.findById(record.getSpec_id()).get().getName(),
-                    timeRepository.findById(record.getTime_id()).get().getTime()));
+            if(record.isState()){
+                recordDtos.add(new RecordDto(record, user.getUsername(),
+                        userRepository.findById(doctorRepository.findById(record.getDoctor_id()).get().getUser_id()).get().getUsername(),
+                        user.getPolis(), specRepository.findById(record.getSpec_id()).get().getName(),
+                        timeRepository.findById(record.getTime_id()).get().getTime()));
+            }
         }
         return recordDtos;
     }
@@ -90,10 +93,20 @@ public class RecordService {
                 () -> {throw new RuntimeException("User not found");}
         );
 
-        Record record = new Record(currentUser.getId(), id, doctorRepository.findById(id).get().getSpec_id(),
+        Doctor doctor = doctorRepository.findById(id).get();
+
+        Record record = new Record(currentUser.getId(), id, doctor.getSpec_id(),
                 recordDtoPayload.getDate(), "", recordDtoPayload.getTime_id(), true);
 
         recordRepository.save(record);
+
+        List<Record> records = currentUser.getRecords();
+        records.add(record);
+        userRepository.save(currentUser);
+
+        List<Record> docRec = doctor.getRecords();
+        docRec.add(record);
+        doctorRepository.save(doctor);
 
         RecordDto recordDto = new RecordDto(record, currentUser.getUsername(),
                 userRepository.findById(doctorRepository.findById(record.getDoctor_id()).get().getUser_id()).get().getUsername(),
@@ -131,10 +144,20 @@ public class RecordService {
 
         Record record = recordRepository.getById(id);
 
+        List<Record> records = currentUser.getRecords();
+        records.remove(record);
+        userRepository.save(currentUser);
+
+        Doctor doctor = doctorRepository.findById(record.getDoctor_id()).get();
+
+        List<Record> docRec = doctor.getRecords();
+        docRec.remove(record);
+        doctorRepository.save(doctor);
+
         recordRepository.delete(record);
 
         RecordDto recordDto = new RecordDto(record, currentUser.getUsername(),
-                userRepository.findById(doctorRepository.findById(record.getDoctor_id()).get().getUser_id()).get().getUsername(),
+                userRepository.findById(doctor.getUser_id()).get().getUsername(),
                 currentUser.getPolis(), specRepository.findById(record.getSpec_id()).get().getName(),
                 timeRepository.findById(record.getTime_id()).get().getTime());
         recordDto.setDescription("*******Удалено*******");

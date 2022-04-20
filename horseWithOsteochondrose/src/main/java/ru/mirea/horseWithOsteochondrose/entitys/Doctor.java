@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import java.util.List;
 
@@ -19,6 +19,6 @@ import java.util.List;
 public class Doctor extends BaseEntity{
     protected Long user_id;
     protected Long spec_id;
-    @OneToMany
+    @ManyToMany
     protected List<Record> records;
 }

@@ -23,13 +23,19 @@ public class DoctorController {
     @Autowired
     protected DoctorService doctorService;
 
-    @GetMapping("/records")
+    @GetMapping("/all_records")
+    public ResponseEntity<List<RecordDto>> doctorsAllRecords(){
+        List<RecordDto> recordDtos = doctorService.doctorsAllRecords();
+        return ResponseEntity.ok(recordDtos);
+    }
+
+    @GetMapping("/record")
     public ResponseEntity<List<RecordDto>> doctorsRecords(){
         List<RecordDto> recordDtos = doctorService.doctorsRecords();
         return ResponseEntity.ok(recordDtos);
     }
 
-    @GetMapping("/records/{id}")
+    @GetMapping("/record/{id}")
     public ResponseEntity<RecordDto> doctorsRecord(@PathVariable long id){
         List<RecordDto> recordDtos = doctorService.doctorsRecords();
         RecordDto recordDto = new RecordDto();
@@ -38,12 +44,28 @@ public class DoctorController {
                 recordDto = dto;
             }
         }
-        return ResponseEntity.ok(recordDto);
+        if(recordDto.getId() != null){
+            return ResponseEntity.ok(recordDto);
+        }
+        else{return null;}
+
     }
 
-    @PutMapping("/records/{id}/close")
+    @PutMapping("/record/{id}/close")
     public ResponseEntity<RecordDto> closeRecord(@PathVariable long id, @RequestBody DescriptionDto descriptionDto){
         RecordDto recordDto = doctorService.closeRecord(id, descriptionDto);
         return ResponseEntity.ok(recordDto);
+    }
+
+    @GetMapping("/user/{id}/history")
+    public ResponseEntity<List<RecordDto>> userHist(@PathVariable long id){
+        List<RecordDto> recordDtos = doctorService.getUserHist(id);
+        return ResponseEntity.ok(recordDtos);
+    }
+
+    @GetMapping("/user/{id}/records")
+    public ResponseEntity<List<RecordDto>> userRec(@PathVariable long id){
+        List<RecordDto> recordDtos = doctorService.getUserRec(id);
+        return ResponseEntity.ok(recordDtos);
     }
 }

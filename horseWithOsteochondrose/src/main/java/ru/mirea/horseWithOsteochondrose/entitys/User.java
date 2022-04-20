@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.List;
@@ -22,8 +23,8 @@ public class User extends BaseEntity{
     protected String password;
     protected String role;
     protected String polis;
-    @OneToMany
+    @ManyToMany
     protected List<Record> records;
-    @OneToMany
+    @ManyToMany
     protected List<Record> history;
 }

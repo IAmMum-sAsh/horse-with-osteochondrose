@@ -65,11 +65,35 @@ public class DoctorService {
         List<Record> records = recordRepository.findDoctorsRecordsOnDay(date, doctor_id);
         List<RecordDto> recordDtos = new LinkedList<>();
         for (Record record : records){
-            recordDtos.add(new RecordDto(record, userRepository.findById(record.getUser_id()).get().getUsername(),
-                    currentUser.getUsername(), userRepository.findById(record.getUser_id()).get().getPolis(),
+            if(record.isState()){
+                User patient = userRepository.findById(record.getUser_id()).get();
+                recordDtos.add(new RecordDto(record, patient.getUsername(),
+                        currentUser.getUsername(), patient.getPolis(),
+                        specRepository.findById(record.getSpec_id()).get().getName(),
+                        timeRepository.findById(record.getTime_id()).get().getTime()));
+            }
+        }
+        return recordDtos;
+    }
+
+    public List<RecordDto> doctorsAllRecords(){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentUserName = authentication.getName();
+        User currentUser = userRepository.findByEmail(currentUserName).orElseThrow(
+                () -> {throw new RuntimeException("User not found");}
+        );
+        Long doctor_id = doctorRepository.findByUser_id(currentUser.getId()).getId();
+        Doctor doctor = doctorRepository.findById(doctor_id).get();
+        List<Record> records = doctor.getRecords();
+
+        List<RecordDto> recordDtos = new LinkedList<>();
+        for (Record record : records){
+            User patient = userRepository.findById(record.getUser_id()).get();
+            recordDtos.add(new RecordDto(record, patient.getUsername(),
+                    currentUser.getUsername(), patient.getPolis(),
                     specRepository.findById(record.getSpec_id()).get().getName(),
                     timeRepository.findById(record.getTime_id()).get().getTime()));
-        }
+        };
         return recordDtos;
     }
 
@@ -81,14 +105,68 @@ public class DoctorService {
         );
 
         Record record = recordRepository.getById(record_id);
-        record.setDescription(descriptionDto.getDescription());
-        record.setState(false);
-        recordRepository.save(record);
+        User patient = userRepository.findById(record.getUser_id()).get();
+        Doctor doctor = doctorRepository.findByUser_id(currentUser.getId());
 
-        RecordDto recordDto = new RecordDto(record, userRepository.findById(record.getUser_id()).get().getUsername(),
-                currentUser.getUsername(), userRepository.findById(record.getUser_id()).get().getPolis(),
+        if (record.isState()){
+            List<Record> docRec = doctor.getRecords();
+            docRec.remove(record);
+            doctorRepository.save(doctor);
+
+            List<Record> history = patient.getHistory();
+            history.add(record);
+            List<Record> records = patient.getRecords();
+            records.remove(record);
+
+            userRepository.save(patient);
+
+            record.setDescription(descriptionDto.getDescription());
+            record.setState(false);
+            recordRepository.save(record);
+        }
+
+        RecordDto recordDto = new RecordDto(record, patient.getUsername(),
+                currentUser.getUsername(), patient.getPolis(),
                 specRepository.findById(record.getSpec_id()).get().getName(),
                 timeRepository.findById(record.getTime_id()).get().getTime());
         return recordDto;
+    }
+
+    public List<RecordDto> getUserHist(long user_id){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentUserName = authentication.getName();
+        User currentUser = userRepository.findByEmail(currentUserName).orElseThrow(
+                () -> {throw new RuntimeException("User not found");}
+        );
+
+        User patient = userRepository.findById(user_id).get();
+        List<Record> history = patient.getHistory();
+        List<RecordDto> recordDtos = new LinkedList<>();
+        for(Record record : history){
+            recordDtos.add(new RecordDto(record, patient.getUsername(),
+                    currentUser.getUsername(), patient.getPolis(),
+                    specRepository.findById(record.getSpec_id()).get().getName(),
+                    timeRepository.findById(record.getTime_id()).get().getTime()));
+        }
+        return recordDtos;
+    }
+
+    public List<RecordDto> getUserRec(long user_id){
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentUserName = authentication.getName();
+        User currentUser = userRepository.findByEmail(currentUserName).orElseThrow(
+                () -> {throw new RuntimeException("User not found");}
+        );
+
+        User patient = userRepository.findById(user_id).get();
+        List<Record> records = patient.getRecords();
+        List<RecordDto> recordDtos = new LinkedList<>();
+        for(Record record : records){
+            recordDtos.add(new RecordDto(record, patient.getUsername(),
+                    currentUser.getUsername(), patient.getPolis(),
+                    specRepository.findById(record.getSpec_id()).get().getName(),
+                    timeRepository.findById(record.getTime_id()).get().getTime()));
+        }
+        return recordDtos;
     }
 }
