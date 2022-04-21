@@ -23,11 +23,8 @@ yarn-debug.log*
 yarn-error.log*
 
 
-# Игнорим файлы переменных докера
-.env
-
-# Игнорируем данные базы
-/pgdata/*
-/zk-single-kafka-single/*
-/tmp-dir/*
-/.idea/*
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
