@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:svgjs="http://svgjs.com/svgjs" id="Pattern793SvgRootPreview" width="100%" height="100%"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://svgjs.com/svgjs
+http://svgjs.com/svgjs ">
+    <defs>
+        <pattern x="0" y="0" width="1" height="1" patternUnits="userSpaceOnUse" id="Pattern793Layer1"
+                 patternTransform="matrix(1,0,0,1,0,0)">
+            <g id="PatternRootContent1">
+                <g id="Pattern793Layer1background">
+                    <rect width="1" height="1" id="Pattern793Background1" class="color_1 fill_color_1"
+                          fill="#555555"></rect>
+                </g>
+            </g>
+        </pattern>
+        <pattern x="0" y="0" width="40" height="40" patternUnits="userSpaceOnUse" id="Pattern793Layer2"
+                 patternTransform="matrix(0.7071067811865476,0.7071067811865475,-0.7071067811865475,0.7071067811865476,0,0)">
+            <g id="PatternRootContent2">
+                <g id="Pattern793Layer2stripe">
+                    <rect width="30" height="40" id="Pattern793Stripe1" class="color_2 fill_color_2" x="0" y="0"
+                          fill="#70133b"></rect>
+                </g>
+            </g>
+        </pattern>
+        <pattern x="0" y="0" width="94" height="112" patternUnits="userSpaceOnUse" id="Pattern793Layer3"
+                 patternTransform="matrix(1,0,0,1,0,0)">
+            <g id="PatternRootContent3">
+                <g id="Pattern793Layer3Element1">
+                    <use xlink:href="#Pattern793Element1" x="27" y="36"
+                         transform="translate(47, 56) scale(0.4) translate(-47, -56) rotate(0, 47, 56)"></use>
+                </g>
+                <g id="Pattern793Layer3Element2">
+                    <use xlink:href="#Pattern793Element2" x="-20" y="-20"
+                         transform="translate(0, 0) scale(0.5) translate(0, 0) rotate(0, 0, 0)"></use>
+                    <use xlink:href="#Pattern793Element2" x="74" y="-20"
+                         transform="translate(94, 0) scale(0.5) translate(-94, 0) rotate(0, 94, 0)"></use>
+                    <use xlink:href="#Pattern793Element2" x="74" y="92"
+                         transform="translate(94, 112) scale(0.5) translate(-94, -112) rotate(0, 94, 112)"></use>
+                    <use xlink:href="#Pattern793Element2" x="-20" y="92"
+                         transform="translate(0, 112) scale(0.5) translate(0, -112) rotate(0, 0, 112)"></use>
+                </g>
+            </g>
+        </pattern>
+        <symbol id="Pattern793Element1">
+            <circle cx="20" cy="20" r="20" class="color_3 fill_color_1" fill="#555555"></circle>
+        </symbol>
+        <symbol id="Pattern793Element2">
+            <circle cx="20" cy="20" r="20" class="color_4 fill_color_1" fill="#555555"></circle>
+        </symbol>
+        <pattern x="0" y="0" width="98" height="320" patternUnits="userSpaceOnUse" id="Pattern793Layer4">
+            <g id="PatternRootContent4">
+                <g id="Pattern793Layer4Element3">
+                    <use xlink:href="#Pattern793Element3" x="29" y="20"
+                         transform="translate(49, 40) scale(0.7) translate(-49, -40) rotate(0, 49, 40)"></use>
+                    <use xlink:href="#Pattern793Element3" x="53.5" y="100"
+                         transform="translate(73.5, 120) scale(0.7) translate(-73.5, -120) rotate(0, 73.5, 120)"></use>
+                    <use xlink:href="#Pattern793Element3" x="-44.5" y="100"
+                         transform="translate(-24.5, 120) scale(0.7) translate(24.5, -120) rotate(0, -24.5, 120)"></use>
+                    <use xlink:href="#Pattern793Element3" x="78" y="180"
+                         transform="translate(98, 200) scale(0.7) translate(-98, -200) rotate(0, 98, 200)"></use>
+                    <use xlink:href="#Pattern793Element3" x="-20" y="180"
+                         transform="translate(0, 200) scale(0.7) translate(0, -200) rotate(0, 0, 200)"></use>
+                    <use xlink:href="#Pattern793Element3" x="102.5" y="260"
+                         transform="translate(122.5, 280) scale(0.7) translate(-122.5, -280) rotate(0, 122.5, 280)"></use>
+                    <use xlink:href="#Pattern793Element3" x="4.5" y="260"
+                         transform="translate(24.5, 280) scale(0.7) translate(-24.5, -280) rotate(0, 24.5, 280)"></use>
+                </g>
+            </g>
+        </pattern>
+        <symbol id="Pattern793Element3">
+            <circle cx="20" cy="20" r="20" class="color_5 fill_color_1" fill="#555555"></circle>
+        </symbol>
+    </defs>
+    <rect width="100%" height="100%" id="Pattern793RctLayer1" fill="url(#Pattern793Layer1)"></rect>
+    <rect width="100%" height="100%" id="Pattern793RctLayer2" fill="url(#Pattern793Layer2)"></rect>
+    <rect width="100%" height="100%" id="Pattern793RctLayer3" fill="url(#Pattern793Layer3)"></rect>
+    <rect width="100%" height="100%" id="Pattern793RctLayer4" fill="url(#Pattern793Layer4)"></rect>
+</svg>

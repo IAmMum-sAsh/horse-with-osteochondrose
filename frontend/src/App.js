@@ -1,25 +1,32 @@
 import logo from './logo.svg';
 import './App.css';
+import {Component} from "react";
+import {BrowserRouter as Router, Routes, Route, Switch, BrowserRouter} from "react-router-dom";
+// import Layout from '../containers/Layout'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ErrorPage from "./ErrorPage";
+import MainPage from "./main_page/MainPage";
+import SignUP from "./login_component/SignUP";
+import Login from "./login_component/Login";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+    render()
+    {
+        return (
+            <BrowserRouter>
+                <Switch>
+                    <Route exact path={'/'} component={MainPage}/>
+
+                    <Route exact path={'/signup'} component={SignUP}/>
+                    <Route exact path={'/login'} component={Login}/>
+
+                    <Route>
+                        <ErrorPage code={404} description={'Страница не найдена.'}/>
+                    </Route>
+                </Switch>
+            </BrowserRouter>
+        );
+    }
 }
 
 export default App;
