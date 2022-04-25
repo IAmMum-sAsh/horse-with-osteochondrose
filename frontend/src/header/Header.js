@@ -32,57 +32,57 @@ class Header extends Component {
         // this.setState({ user: cookies.get("user") });
     };
 
-    async getRole() {
-        const cookies = new Cookies();
-        let a = cookies.get('accessToken');
-        let b = cookies.get('');
+    // async getRole() {
+    //     const cookies = new Cookies();
+    //     let a = cookies.get('accessToken');
+    //     let b = cookies.get('');
+    //
+    //     return await fetch('/api/get_my_role', {
+    //         method: 'get',
+    //         headers: new Headers({
+    //             'Authorization': 'Bearer ' + a,
+    //             'Content-Type': 'application/json'
+    //         }),
+    //     }).then(response => response.json());
+    // }
 
-        return await fetch('/api/get_my_role', {
-            method: 'get',
-            headers: new Headers({
-                'Authorization': 'Bearer ' + a,
-                'Content-Type': 'application/json'
-            }),
-        }).then(response => response.json());
-    }
+    // async getName() {
+    //     const cookies = new Cookies();
+    //     let a = cookies.get('accessToken');
+    //
+    //     return await fetch('/api/get_name', {
+    //         method: 'get',
+    //         headers: new Headers({
+    //             'Authorization': 'Bearer ' + a,
+    //             'Content-Type': 'application/json'
+    //         }),
+    //     }).then(response => response.json());
+    // }
 
-    async getName() {
-        const cookies = new Cookies();
-        let a = cookies.get('accessToken');
-
-        return await fetch('/api/get_name', {
-            method: 'get',
-            headers: new Headers({
-                'Authorization': 'Bearer ' + a,
-                'Content-Type': 'application/json'
-            }),
-        }).then(response => response.json());
-    }
-
-    async getId() {
-        const cookies = new Cookies();
-        let a = cookies.get('accessToken');
-
-        return await fetch('/api/get_id', {
-            method: 'get',
-            headers: new Headers({
-                'Authorization': 'Bearer ' + a,
-                'Content-Type': 'application/json'
-            }),
-        }).then(response => response.json());
-    }
+    // async getId() {
+    //     const cookies = new Cookies();
+    //     let a = cookies.get('accessToken');
+    //
+    //     return await fetch('/api/get_id', {
+    //         method: 'get',
+    //         headers: new Headers({
+    //             'Authorization': 'Bearer ' + a,
+    //             'Content-Type': 'application/json'
+    //         }),
+    //     }).then(response => response.json());
+    // }
 
     async componentDidMount() {
         if (document.URL.includes('my_projects/') || document.URL.includes('projects/') || document.URL.includes('companies/')){
             this.setState({data_p: '../avatar.png'});
         }
 
-        let prsRole = await this.getRole();
-        this.setState({role: prsRole.role});
-        let prsName = await this.getName();
-        this.setState({name: prsName.name});
-        let prsId = await this.getId();
-        this.setState({id: prsId.id});
+        // let prsRole = await this.getRole();
+        // this.setState({role: prsRole.role});
+        // let prsName = await this.getName();
+        // this.setState({name: prsName.name});
+        // let prsId = await this.getId();
+        // this.setState({id: prsId.id});
     }
 
     renderMyProjects() {

@@ -2,7 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58be6046-f527-4ceb-a6dc-e54fef1fc51b" name="Default Changelist" comment="добавтение страниц регистрации и авторизации">
+      <change afterPath="$PROJECT_DIR$/.idea/frontend.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/calendar_component/calendar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/auth_element/AuthElement.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/header/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_page/MainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_page/MainPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +38,7 @@
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -37,6 +48,17 @@
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="start" />
@@ -66,6 +88,7 @@
       <workItem from="1650630590499" duration="7743000" />
       <workItem from="1650639011127" duration="565000" />
       <workItem from="1650639609848" duration="33000" />
+      <workItem from="1650894057153" duration="9944000" />
     </task>
     <task id="LOCAL-00001" summary="обновление .gitignore">
       <created>1650551561007</created>
