@@ -10,10 +10,18 @@ class Calendar extends Component {
 
     state = {
         activeDate: new Date(),
-        today: new Date()
+        today: new Date(),
+        changedMonth : new Date().getMonth()
     }
 
     generateMatrix() {
+        let someDate = new Date();
+        for (let m = 0; m < 12; m++) {
+            someDate.setMonth(m);
+            console.log(someDate.getMonth() + ' ' + this.months[someDate.getMonth()])
+        }
+
+
         let matrix = [];
         matrix[0] = this.weekDays;
 
@@ -61,9 +69,11 @@ class Calendar extends Component {
 
     changeMonth = (n) => {
         this.setState(() => {
-            return this.state.activeDate.setMonth(this.state.activeDate.getMonth() + n);
+            this.state.activeDate.setMonth(
+                this.state.activeDate.getMonth() + n
+            )
+            return this.state;
         });
-        // this.setState({activeDate : this.state.activeDate.getMonth() + n});
     }
 
 
@@ -73,9 +83,13 @@ class Calendar extends Component {
         console.log('na kalendare' + this.state.activeDate.getMonth())
 
         let matrix = this.generateMatrix();
+        let counter = -10;
         var rows = [];
         rows = matrix.map((row, rowIndex) => {
             var rowItems = row.map((item, colIndex) => {
+                if (item == this.state.today.getDate()){
+                    counter=0;
+                }//(item+maxDays-this.state.today.getDate() <= 35)&&(this.state.activeDate.getMonth()==this.state.nowMonth)
                 return (
                     <RN.Text
                         style={{
@@ -83,7 +97,7 @@ class Calendar extends Component {
                             height: 35,
                             lineHeight: 35,
                             textAlign: 'center',
-                            backgroundColor: rowIndex == 0 ? 'teal' : (item+maxDays-this.state.today.getDate() <= 35)&&(this.state.today.getMonth()==1) ? '#00FA9A': 'white',
+                            backgroundColor: rowIndex == 0 ? 'teal' : counter>=0&&counter++<=7&&colIndex!=5&&colIndex!=6 ? '#00FA9A': 'white',
                             color : colIndex == 6 || colIndex == 5 ? 'red' : 'black',
                             fontWeight : item == this.state.activeDate.getDate() ? 'bold' : 'normal',
                             border: '1px solid black',

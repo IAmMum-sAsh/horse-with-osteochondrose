@@ -1,18 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="58be6046-f527-4ceb-a6dc-e54fef1fc51b" name="Default Changelist" comment="добавтение страниц регистрации и авторизации">
-      <change afterPath="$PROJECT_DIR$/.idea/frontend.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/calendar_component/calendar.js" afterDir="false" />
+    <list default="true" id="58be6046-f527-4ceb-a6dc-e54fef1fc51b" name="Default Changelist" comment="разработка календаря">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/auth_element/AuthElement.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/header/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_page/MainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_page/MainPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/calendar_component/calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/calendar_component/calendar.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +79,7 @@
       <workItem from="1650630590499" duration="7743000" />
       <workItem from="1650639011127" duration="565000" />
       <workItem from="1650639609848" duration="33000" />
-      <workItem from="1650894057153" duration="9944000" />
+      <workItem from="1650894057153" duration="13259000" />
     </task>
     <task id="LOCAL-00001" summary="обновление .gitignore">
       <created>1650551561007</created>
@@ -146,7 +137,14 @@
       <option name="project" value="LOCAL" />
       <updated>1650638269022</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="разработка календаря">
+      <created>1650904219076</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1650904219076</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,6 +167,7 @@
     <MESSAGE value="обновление .gitignore" />
     <MESSAGE value="инициализация фронтенда" />
     <MESSAGE value="добавтение страниц регистрации и авторизации" />
-    <option name="LAST_COMMIT_MESSAGE" value="добавтение страниц регистрации и авторизации" />
+    <MESSAGE value="разработка календаря" />
+    <option name="LAST_COMMIT_MESSAGE" value="разработка календаря" />
   </component>
 </project>
