@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import './main_page.css';
 import Header from "../header/Header";
 import Cookies from "universal-cookie";
-import Calendar from "../calendar_component/calendar";
+import Calendar from "../my_calendar_component/calendar";
 
 class MainPage extends Component {
     constructor(props) {

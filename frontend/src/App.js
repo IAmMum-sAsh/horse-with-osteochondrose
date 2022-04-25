@@ -8,7 +8,8 @@ import ErrorPage from "./ErrorPage";
 import MainPage from "./main_page/MainPage";
 import SignUP from "./login_component/SignUP";
 import Login from "./login_component/Login";
-import Calendar from "./calendar_component/calendar.js";
+import MyCalendar from "./my_calendar_component/calendar";
+import Calendarik from "./calendar_component/calendar";
 
 class App extends Component {
     render()
@@ -20,7 +21,8 @@ class App extends Component {
 
                     <Route exact path={'/signup'} component={SignUP}/>
                     <Route exact path={'/login'} component={Login}/>
-                    <Route exact path={'/calendar'} component={Calendar}/>
+                    <Route exact path={'/my_calendar'} component={MyCalendar}/>
+                    <Route exact path={'/calendar'} component={Calendarik}/>
 
                     <Route>
                         <ErrorPage code={404} description={'Страница не найдена.'}/>
