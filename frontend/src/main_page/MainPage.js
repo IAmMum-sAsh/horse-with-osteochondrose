@@ -14,6 +14,10 @@ class MainPage extends Component {
         }
     }
 
+    componentDidMount(){
+        document.title = "Главная"
+    }
+
     renderBtn() {
         const cookies = new Cookies();
         let a = cookies.get('accessToken');
@@ -33,8 +37,8 @@ class MainPage extends Component {
                     <div className='mheader'>
                         <div className='mcontainer'>
                             <div className="overlay">
-                                <h1>БОРЩ</h1>
-                                <h3>Система управления персоналом</h3>
+                                <h1>Конёк-Горбунок</h1>
+                                <h3>Электронная больница</h3>
                                 <hr />
                                 <div className="content__article">
 
@@ -43,7 +47,7 @@ class MainPage extends Component {
                                     </p>
                                     <p><img src={data_p} alt="герб"/></p>
                                     <p>Институт информационных технологий (ИТ)<br/>Кафедра инструментального и прикладного программного обеспечения (ИиППО)</p>
-                                    <p>Курсовая работа<br/>по дисциплине<br/>«Разработка серверных частей интернет-ресурсов»<br/>на тему «Веб-сервис по управлению персоналом»</p>
+                                    <p>Курсовая работа<br/>по дисциплине<br/>«Разработка клиент-серверных приложений»<br/>на тему «Разработка клиент-серверного фуллстек-приложения для управления больницей с использованием Spring Boot и React»</p>
                                     <p className="right">Студента 3 курса<br/>группы ИКБО-01-19<br/>Витухиной Натальи Александровны</p>
                                 </div>
 

@@ -89,7 +89,7 @@ async function registerWorkerUser(credentials) { //credentials as param
     //console.log(JSON.stringify(credentials));
 
     let data = '';
-    return fetch('/api/signup/worker', {
+    return fetch('/api/signup', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -112,6 +112,7 @@ class SignUP extends Component {
             username: '',
             email: '',
             password: '',
+            polis: '',
             userProfileImageUrl: "https://iconorbit.com/icons/256-watermark/1611201511385554301-Girl%20User.jpg",
             title:"",
             description:"",
@@ -149,25 +150,13 @@ class SignUP extends Component {
         );
     }
 
-    // componentDidMount() {
-    //     //TODO: вставить получение картинки.
-    //     fetch(process.env.REACT_APP_BASE_BACKEND_URL + '/api/user/get_user_img_url?userId=22' )
-    //         .then(response => response.json())
-    //         .then(res => /*console.log(result.imgUrl) );*/ this.setState({data_p : res.img}));
-    //
-    //     console.log(this.state.data_p);
-    //     // .catch(e => {
-    //     //         console.log(e);
-    //     //         this.setState({data: result, isFetching: false, error: e }));
-    //     // });
-    // }
-
     handleSubmit = async e => {
         e.preventDefault();
 
         let username = this.state.username;
         let email = this.state.email;
         let password = this.state.password;
+        let polis = this.state.polis;
 
         let userProfileImageUrl = this.state.userProfileImageUrl;
 
@@ -177,22 +166,15 @@ class SignUP extends Component {
             return;
         } if (password === null || password === '') {
             return;
+        } if (polis === null || polis === '') {
+            return;
         }
 
-
-
-        // if (this.state.sel1 == "selected") {
-        //     const token = registerManagerUser({
-        //         username,
-        //         email,
-        //         password
-        //     }).then(result => {this.setState({res : result.username} ) } )
-        //     //console.log(token.then(result => {this.setState({res : result.username} ) } ));
-        // } else
         const token = registerWorkerUser({
             username,
             email,
-            password
+            password,
+            polis
         }).then(result => {this.setState({
             res : result.username
         } ) } )
@@ -206,20 +188,12 @@ class SignUP extends Component {
         const value = target.value;
         const name = target.name;
 
-        //console.log(name, " ", value)
         this.setState({
             [name]: value
         });
     }
 
     handleChange = (event) => {
-        // this.setState(state => ({
-        //     editTodo: {
-        //         ...state.editTodo,
-        //         who: event.target.value,
-        //     },
-        // }));
-
         this.setState({
             who: event.target.value
         });
@@ -250,8 +224,8 @@ class SignUP extends Component {
                     </div>
 
                     <form className="frmmain" noValidate> <a href='/'>
-                        <img src="3056196.png" alt="" className="icoicoico"/>
-                        <h3>Сервис УП <span>БОРЩ</span></h3></a>
+                        <img src="logo.png" alt="" className="icoicoico"/>
+                        <h3>Электронная больница <span>Конёк-Горбунок</span></h3></a>
                         <p>Добро пожаловать! Пожалуйста, введите информацию в поля ниже для получения доступа к функциям сервиса.</p>
 
                         <TextField
@@ -283,6 +257,16 @@ class SignUP extends Component {
                             type="password"
                             id="password"
                             autoComplete="current-password"
+                            onChange={this.handleInputChange}
+                        /> <br/>
+                        <TextField
+                            variant="outlined"
+                            required
+                            fullWidth
+                            id="polis"
+                            label="Медицинский полис"
+                            name="polis"
+                            autoComplete="polis"
                             onChange={this.handleInputChange}
                         />
 
