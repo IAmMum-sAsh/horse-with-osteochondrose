@@ -1,10 +1,10 @@
 import React, {Component} from "react";
-import './main_page.css';
+import './info_page.css';
 import Header from "../header/Header";
 import Cookies from "universal-cookie";
 import Calendar from "../my_calendar_component/calendar";
 
-class MainPage extends Component {
+class InfoPage extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -60,4 +60,4 @@ class MainPage extends Component {
     }
 }
 
-export default MainPage;
+export default InfoPage;

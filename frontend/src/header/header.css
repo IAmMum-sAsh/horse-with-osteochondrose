@@ -7,6 +7,9 @@ a{
     color: crimson;
     font-size: x-large;
 }
+.main-lbl:hover{
+    color: #CD5C5C;
+}
 
 body {
     min-width: 270px;
@@ -19,6 +22,7 @@ body {
 
 .user-span{
     font-weight: normal;
+    color: white;
 }
 .user-name{
     font-weight: bold;

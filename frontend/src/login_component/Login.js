@@ -104,7 +104,9 @@ class Login extends Component {
             const cookies = new Cookies();
             cookies.set('accessToken', token.accessToken, {path: '/'});
             cookies.set('refreshToken', token.refreshToken, {path: '/'});
-
+            cookies.set('name', token.name, {path: '/'});
+            cookies.set('role', token.role, {path: '/'});
+            cookies.set('id', token.id, {path: '/'});
             this.props.history.push("/");
         }
 

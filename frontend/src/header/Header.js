@@ -30,38 +30,30 @@ class Header extends Component {
         cookies.remove("refreshToken"); // remove the cookie
     };
 
-    async getinfo() {
-        const cookies = new Cookies();
-        let a = cookies.get('accessToken');
-        let b = cookies.get('');
-
-        if (a){
-            return await fetch('/api/getInfo', {
-                method: 'get',
-                headers: new Headers({
-                    'Authorization': 'Bearer ' + a,
-                    'Content-Type': 'application/json'
-                }),
-            }).then(response => response.json());
-        }
-    }
-
     async componentDidMount() {
         const cookies = new Cookies();
         let a = cookies.get('accessToken');
 
+        let cName = cookies.get('name');
+        let cRole = cookies.get('role');
+        let cId = cookies.get('id');
+
         if (a) {
             this.setState({data_p: '../avatar.png'});
-            let prsInfo = await this.getinfo();
-            this.setState({role: prsInfo.role});
-            this.setState({name: prsInfo.name});
-            this.setState({id: prsInfo.id});
+            this.setState({role: cRole});
+            this.setState({name: cName});
+            this.setState({id: cId});
         } else {
             this.setState({data_p: '../avatar1.png'});
         }
     }
 
-    renderMyProjects() {
+    // строка в шапке
+    renderInfoPage() {
+        return <a className='p-2 text-white' href="/about">О проекте</a>;
+    }
+
+    renderMyProjects1() {
         const cookies = new Cookies();
         let a = cookies.get('accessToken');
 
@@ -70,6 +62,7 @@ class Header extends Component {
         }
     }
 
+    // выпадающее меню
     renderGiveManage() {
         const cookies = new Cookies();
         let a = cookies.get('accessToken');
@@ -80,7 +73,7 @@ class Header extends Component {
         }
     }
 
-
+    // собираем выпадающее меню
     addFunctions() {
         const cookies = new Cookies();
         let b = cookies.get('accessToken');
@@ -101,15 +94,8 @@ class Header extends Component {
             )
         }
     }
-    renderBtnWork() {
-        const cookies = new Cookies();
-        let a = cookies.get('accessToken');
 
-        if (a) {
-            return <a className='p-2 text-white' href='/workers'>Работники</a>;
-        }
-    }
-
+    // имя в шапке
     renderName() {
         const cookies = new Cookies();
         let a = cookies.get('accessToken');
@@ -131,15 +117,14 @@ class Header extends Component {
 
 
                     <nav className='my-2 my-md-0 mr-md-3'>
-                        <a className='p-2 text-white' href='/companies'>Компании</a>
-                        <a className='p-2 text-white' href='/projects'>Проекты</a>
-                        {this.renderBtnWork()}
-                        {this.renderMyProjects()}
+                        {/*в шапке*/}
+                        {this.renderInfoPage()}
                         <div className="dropdown">
                             <div >
                                 <img className='user-nav-img' src={data_p}  alt='avatar'/>
 
                             </div>
+                            {/*выпадающее меню*/}
                             { this.addFunctions() }
                         </div>
                     </nav>

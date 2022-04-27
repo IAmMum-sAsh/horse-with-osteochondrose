@@ -5,11 +5,12 @@ import {BrowserRouter as Router, Route, Switch, BrowserRouter} from "react-route
 // import Layout from '../containers/Layout'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ErrorPage from "./ErrorPage";
-import MainPage from "./main_page/MainPage";
 import SignUP from "./login_component/SignUP";
 import Login from "./login_component/Login";
 import MyCalendar from "./my_calendar_component/calendar";
 import Calendarik from "./calendar_component/calendar";
+import InfoPage from "./info_page/InfoPage";
+import MainPage from "./main_page/MainPage";
 
 class App extends Component {
     render()
@@ -18,6 +19,8 @@ class App extends Component {
             <BrowserRouter>
                 <Switch>
                     <Route exact path={'/'} component={MainPage}/>
+
+                    <Route exact path={'/about'} component={InfoPage}/>
 
                     <Route exact path={'/signup'} component={SignUP}/>
                     <Route exact path={'/login'} component={Login}/>
