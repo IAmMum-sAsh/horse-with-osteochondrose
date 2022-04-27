@@ -1,0 +1,22 @@
+.card{
+    transition: none;
+    display: block;
+    background: rgba(0, 149, 103, 0.34);
+    border: 1px solid #007656;
+    align-self: normal;
+    cursor: auto;
+    padding: 10px;
+}
+
+.comp-name, .card-body p {
+    font-family: 'Times New Roman', serif;
+    color: black;
+    margin: 0;
+}
+.comp-name span{
+    margin-bottom: 20px;
+}
+
+.u{
+    font-weight: bold;
+}

@@ -53,12 +53,12 @@ class Header extends Component {
         return <a className='p-2 text-white' href="/about">О проекте</a>;
     }
 
-    renderMyProjects1() {
+    renderMyRecords() {
         const cookies = new Cookies();
         let a = cookies.get('accessToken');
 
         if (a) {
-            return <a className='p-2 text-white' href="/my_projects">Мои проекты</a>;
+            return <a className='p-2 text-white' href="/records">Мои записи</a>;
         }
     }
 
@@ -119,6 +119,7 @@ class Header extends Component {
                     <nav className='my-2 my-md-0 mr-md-3'>
                         {/*в шапке*/}
                         {this.renderInfoPage()}
+                        {this.renderMyRecords()}
                         <div className="dropdown">
                             <div >
                                 <img className='user-nav-img' src={data_p}  alt='avatar'/>

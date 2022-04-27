@@ -11,6 +11,8 @@ import MyCalendar from "./my_calendar_component/calendar";
 import Calendarik from "./calendar_component/calendar";
 import InfoPage from "./info_page/InfoPage";
 import MainPage from "./main_page/MainPage";
+import UserRecords from "./user_records/user_records";
+import DocBySpec from "./docs_by_spec/docs_by_spec";
 
 class App extends Component {
     render()
@@ -21,6 +23,8 @@ class App extends Component {
                     <Route exact path={'/'} component={MainPage}/>
 
                     <Route exact path={'/about'} component={InfoPage}/>
+                    <Route exact path={'/records'} component={UserRecords}/>
+                    <Route exact path={'/specs/**'} component={DocBySpec}/>
 
                     <Route exact path={'/signup'} component={SignUP}/>
                     <Route exact path={'/login'} component={Login}/>

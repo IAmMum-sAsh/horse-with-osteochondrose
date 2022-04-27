@@ -1,18 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="58be6046-f527-4ceb-a6dc-e54fef1fc51b" name="Default Changelist" comment="fix регистрации и авторизации">
+    <list default="true" id="58be6046-f527-4ceb-a6dc-e54fef1fc51b" name="Default Changelist" comment="информационная и главная страницы">
+      <change afterPath="$PROJECT_DIR$/src/docs_by_spec/docs_by_spec.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/docs_by_spec/docs_by_spec.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user_records/user_records.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/user_records/user_records.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/header/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/header/header.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/header/header.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/login_component/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/login_component/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_page/MainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/info_page/InfoPage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main_page/main_page.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/info_page/info_page.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../horseWithOsteochondrose/src/main/java/ru/mirea/horseWithOsteochondrose/controllers/AuthenticationController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../horseWithOsteochondrose/src/main/java/ru/mirea/horseWithOsteochondrose/controllers/AuthenticationController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../horseWithOsteochondrose/src/main/java/ru/mirea/horseWithOsteochondrose/controllers/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../horseWithOsteochondrose/src/main/java/ru/mirea/horseWithOsteochondrose/controllers/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../horseWithOsteochondrose/src/main/java/ru/mirea/horseWithOsteochondrose/dto/AuthInfoDto.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../horseWithOsteochondrose/src/main/java/ru/mirea/horseWithOsteochondrose/security/dto/JwtAuthDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../horseWithOsteochondrose/src/main/java/ru/mirea/horseWithOsteochondrose/security/dto/JwtAuthDto.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +93,7 @@
       <workItem from="1650639011127" duration="565000" />
       <workItem from="1650639609848" duration="33000" />
       <workItem from="1650894057153" duration="17095000" />
-      <workItem from="1651052986272" duration="13764000" />
+      <workItem from="1651052986272" duration="18026000" />
     </task>
     <task id="LOCAL-00001" summary="обновление .gitignore">
       <created>1650551561007</created>
@@ -183,7 +179,21 @@
       <option name="project" value="LOCAL" />
       <updated>1651060511382</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="информационная и главная страницы">
+      <created>1651067040654</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1651067040654</updated>
+    </task>
+    <task id="LOCAL-00014" summary="информационная и главная страницы">
+      <created>1651067066750</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1651067066750</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,6 +218,7 @@
     <MESSAGE value="добавтение страниц регистрации и авторизации" />
     <MESSAGE value="разработка календаря" />
     <MESSAGE value="fix регистрации и авторизации" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix регистрации и авторизации" />
+    <MESSAGE value="информационная и главная страницы" />
+    <option name="LAST_COMMIT_MESSAGE" value="информационная и главная страницы" />
   </component>
 </project>
