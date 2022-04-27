@@ -107,8 +107,6 @@ class Header extends Component {
 
     render() {
         const { data_p } = this.state;
-
-        console.log(this.state.name + ' ' + this.state.role + ' ' + this.state.id)
         return (
             <div>
 

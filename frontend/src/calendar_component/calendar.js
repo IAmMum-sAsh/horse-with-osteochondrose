@@ -3,9 +3,12 @@ import Calendar from 'react-calendar';
 // import 'react-calendar/dist/Calendar.css';
 import './calendar.css';
 
+let months = ['янв', 'фев', 'март', 'апр', 'май', 'июн', 'июл', 'авг', 'сент', 'окт', 'нояб', 'дек'];
+
 class Calendarik extends Component {
     state = {
-        date: new Date()
+        date: new Date(),
+        visibility: false
     }
 
     _onPress = (newDate) => {
@@ -27,15 +30,18 @@ class Calendarik extends Component {
         let nowMonth = this.state.date.getMonth();
         let nowYear = this.state.date.getFullYear();
 
+        let prp = 'vis-'+this.props.show;
+        console.log(prp);
+
 
         return (
-            <div className='app'>
+            <div className={"app " + prp}>
                 <div className='calendar-container'>
                     <Calendar onChange={this._onPress} value={this.state.date} />
                 </div>
                 <p className='text-center'>
-                    <span className='bold'>Selected Date:</span>{' '}
-                    {nowDate}{'.'}{nowMonth}{'.'}{nowYear}
+                    <span className='bold'>Выбранная дата:</span>{' '}
+                    {nowDate}{' '}{months[nowMonth]}{' '}{nowYear}
                 </p>
             </div>
         );

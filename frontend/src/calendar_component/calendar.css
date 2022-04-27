@@ -124,3 +124,10 @@
 .text-center{
     color: black;
 }
+
+.vis-false{
+    display: none;
+}
+.vis-true{
+    display: compact;
+}

@@ -1,0 +1,20 @@
+.fa-ul{
+    margin: 0;
+}
+
+.spec-b{
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.red{
+    display: block;
+    background: rgba(149, 0, 0, 0.34);
+    border: 1px solid #760000;
+    align-self: normal;
+}
+.red:hover{
+    background: rgba(149, 0, 0, 0.34);
+    border: 1px solid #760000;
+}
+

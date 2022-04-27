@@ -1,7 +1,8 @@
 import React, {Component} from "react";
-import './docs_by_spec.css';
 import Header from "../header/Header";
 import Cookies from "universal-cookie";
+import Calendarik from "../calendar_component/calendar";
+import './docs_by_spec.css';
 
 class DocBySpec extends Component {
     constructor(props) {
@@ -9,9 +10,20 @@ class DocBySpec extends Component {
         this.state = {
             docs: [],
             spec_id: 0,
+            selectedDoctor: 0,
+            isCalendar: false,
             code: props.code ? props.code : '999',
             description: props.description ? props.description : 'Unknown error'
         }
+    }
+
+    showCalendar = () => {
+        this.setState({isCalendar: true});
+        console.log(this.state.isCalendar);
+    }
+    hideCalendar = () => {
+        this.setState({isCalendar: false});
+        console.log(this.state.isCalendar);
     }
 
     async getSpecs() {
@@ -20,7 +32,6 @@ class DocBySpec extends Component {
 
         let s = document.URL;
         let res = s.split('/').pop();
-        console.log(res);
 
         const name = 'spec_id';
 
@@ -40,14 +51,13 @@ class DocBySpec extends Component {
     async componentDidMount() {
         document.title = "Главная"
         let prs = await this.getSpecs();
-        console.log(prs);
         this.setState({docs: prs});
     }
 
     renderSpecs(){
         // const list = this.state.specs.map(specs => <a className="spec-b">{specs.id} - {specs.name}</a>);
-        const list = this.state.docs.map(doc => <a href={"/doctor/"+doc.doctor_id} className="btn btn-primary btn-lg spec-b" id={doc.doctor_id}
-                                                      data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Processing Order">{doc.username}</a>);
+        const list = this.state.docs.map(doc => <button onClick={this.showCalendar} className="btn btn-primary btn-lg spec-b" id={doc.doctor_id}
+                                                      data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Processing Order">{doc.username}</button>);
         return (
             <div className="fa-ul">
                 {list}
@@ -63,10 +73,10 @@ class DocBySpec extends Component {
                 <div className='main-important'>
                     <Header />
                     <div className="container">
-                        <h3>Выберите специальность для записи</h3>
+                        <h3>Выберите специальность для записи</h3><button onClick={this.hideCalendar} className="btn btn-primary btn-lg spec-b red" id={0}>Скрыть</button>
                         {this.renderSpecs()}
                     </div>
-
+                    <Calendarik show={this.state.isCalendar} date={new Date()}/>
                 </div>
             </div>
         );
