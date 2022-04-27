@@ -18,7 +18,7 @@ public class UserSignupController {
     @Autowired
     UserService userService;
 
-    @PostMapping("/")
+    @PostMapping("")
     public ResponseEntity<UserDto> signupNewUser(@RequestBody UserDtoPayload userDtoPayload) {
         if (userService.findByEmail(userDtoPayload.getEmail()).isPresent())
             throw new RuntimeException();
