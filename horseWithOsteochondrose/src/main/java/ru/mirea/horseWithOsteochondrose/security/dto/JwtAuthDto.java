@@ -11,4 +11,13 @@ public class JwtAuthDto {
     private String email;
     private String accessToken;
     private String refreshToken;
+    private String role;
+    private String name;
+    private long id;
+
+    JwtAuthDto(String email, String accessToken, String refreshToken){
+        this.email = email;
+        this.accessToken = accessToken;
+        this.refreshToken = refreshToken;
+    }
 }

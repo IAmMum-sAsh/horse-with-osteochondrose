@@ -83,16 +83,4 @@ public class UserController {
     public ResponseEntity<RecordDto> createRecord(@PathVariable long id, @RequestBody RecordDtoPayload recordDtoPayload) {
         return ResponseEntity.ok(recordService.createRecord(id, recordDtoPayload));
     }
-
-    @GetMapping("/getInfo")
-    public ResponseEntity<AuthInfoDto> getInfo(){
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        String currentUserName = authentication.getName();
-        User currentUser = userService.findByEmail(currentUserName).orElseThrow(
-                () -> {throw new RuntimeException("User not found");}
-        );
-        AuthInfoDto authInfoDto = new AuthInfoDto(currentUser.getRole(), currentUser.getUsername(), currentUser.getId());
-
-        return ResponseEntity.ok(authInfoDto);
-    }
 }

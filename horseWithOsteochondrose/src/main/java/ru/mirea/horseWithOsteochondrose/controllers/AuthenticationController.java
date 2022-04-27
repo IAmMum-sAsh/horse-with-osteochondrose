@@ -47,6 +47,10 @@ public class AuthenticationController {
             jwtAuthDto.setAccessToken(accessToken);
             jwtAuthDto.setRefreshToken(refreshToken);
 
+            jwtAuthDto.setId(user.getId());
+            jwtAuthDto.setName(user.getUsername());
+            jwtAuthDto.setRole(user.getRole());
+
             return ResponseEntity.ok(jwtAuthDto);
         }
         catch (IllegalArgumentException e) {
