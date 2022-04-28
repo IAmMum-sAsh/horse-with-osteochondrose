@@ -24,7 +24,7 @@
     "rc-upload": "^4.3.2",
     "react": "^17.0.1",
     "react-awesome-slider": "^4.1.0",
-    "react-bootstrap": "^0.32.1",
+    "react-bootstrap": "^2.2.1",
     "react-bootstrap-validation": "^0.1.11",
     "react-cookie": "^4.0.3",
     "react-currency-input-field": "^3.3.1",

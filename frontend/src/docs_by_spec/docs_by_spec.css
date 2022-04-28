@@ -18,3 +18,25 @@
     border: 1px solid #760000;
 }
 
+.vis-false{
+    display: none;
+}
+.vis-true{
+    display: compact;
+}
+
+.time{
+    display: inline-block;
+    width: 30%;
+    margin: 5px;
+}
+
+.selected{
+    background: rgba(104, 0, 149, 0.34);
+    border: 1px solid #3b0076;
+}
+
+.UNselected{
+    background: rgba(0, 149, 103, 0.52);
+    border: 1px solid #005a43;
+}

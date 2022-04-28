@@ -1,9 +1,8 @@
-import React, {Component} from "react";
+import React, {Component, useState} from "react";
 import Header from "../header/Header";
 import Cookies from "universal-cookie";
 import Calendarik from "../calendar_component/calendar";
 import './docs_by_spec.css';
-import {element} from "prop-types";
 
 class DocBySpec extends Component {
     constructor(props) {
@@ -22,12 +21,12 @@ class DocBySpec extends Component {
     showCalendar = (value) => {
         this.setState({isCalendar: true});
         this.setState({selectedDoctor: value});
-        console.log(this.state.selectedDoctor);
+        console.log('> selectedDoctor ' + value);
     }
-    hideCalendar = (value) => {
+    hideCalendar = () => {
         this.setState({isCalendar: false});
-        this.setState({selectedDoctor: value});
-        console.log(this.state.selectedDoctor);
+        this.setState({selectedDoctor: 0});
+        console.log('> selectedDoctor 0');
     }
 
     updateData = (value) => {
@@ -47,13 +46,15 @@ class DocBySpec extends Component {
             [name]: res
         });
 
-        return await fetch('/api/specs/'+Number(res), {
-            method: 'get',
-            headers: new Headers({
-                'Authorization': 'Bearer ' + a,
-                'Content-Type': 'application/json'
-            }),
-        }).then(response => response.json());
+        if (a){
+            return await fetch('/api/specs/'+Number(res), {
+                method: 'get',
+                headers: new Headers({
+                    'Authorization': 'Bearer ' + a,
+                    'Content-Type': 'application/json'
+                }),
+            }).then(response => response.json());
+        }
     }
 
     async componentDidMount() {
@@ -63,9 +64,8 @@ class DocBySpec extends Component {
     }
 
     renderSpecs(){
-        // const list = this.state.specs.map(specs => <a className="spec-b">{specs.id} - {specs.name}</a>);
-        const list = this.state.docs.map(doc => <button onClick={() => {this.showCalendar(doc.doctor_id)}} className="btn btn-primary btn-lg spec-b" id={doc.doctor_id}
-                                                      data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Processing Order">{doc.username}</button>);
+        const list = this.state.docs.map(doc => <button onClick={() => {this.showCalendar(doc.doctor_id)}}
+                                                        className={"btn btn-primary btn-lg spec-b " + (doc.doctor_id === this.state.selectedDoctor ? "selected" : "UNselected")} id={doc.doctor_id} >{doc.username}</button>);
         return (
             <div className="">
                 {list}
@@ -74,17 +74,24 @@ class DocBySpec extends Component {
 
     }
 
+    handleChange(id) {
+        this.setState({ClickedButton: id})
+        this.props.selectedtype.bind(this, id)()
+    }
+
     render() {
-        const { data_p } = this.state;
+        let calVis = 'vis-'+this.state.isCalendar;
+
         return (
             <div className="back-background">
                 <div className='main-important'>
                     <Header />
                     <div className="container">
-                        <h3>Выберите специалиста для записи</h3><button onClick={this.hideCalendar} className="btn btn-primary btn-lg spec-b red" id={0}>Скрыть</button>
+                        <h3>Выберите специалиста для записи</h3>
                         {this.renderSpecs()}
+                        <Calendarik show={this.state.isCalendar} updateData={this.updateData} doctor_id={this.state.selectedDoctor} date={this.state.date}/>
+                        <button onClick={this.hideCalendar} className={"btn btn-primary btn-lg spec-b red " + calVis} id={0}>Скрыть</button>
                     </div>
-                    <Calendarik show={this.state.isCalendar} updateData={this.updateData}/>
                 </div>
             </div>
         );

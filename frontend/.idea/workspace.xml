@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="58be6046-f527-4ceb-a6dc-e54fef1fc51b" name="Default Changelist" comment="добавление календаря">
-      <change afterPath="$PROJECT_DIR$/src/free_time_window/free_time_window.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/free_time_window/free_time_window.js" afterDir="false" />
+    <list default="true" id="58be6046-f527-4ceb-a6dc-e54fef1fc51b" name="Default Changelist" comment="настройка календаря">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/calendar_component/calendar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/calendar_component/calendar.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/calendar_component/calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/calendar_component/calendar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/docs_by_spec/docs_by_spec.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/docs_by_spec/docs_by_spec.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/docs_by_spec/docs_by_spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/docs_by_spec/docs_by_spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/header/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/info_page/InfoPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/info_page/InfoPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/free_time_window/free_time_window.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/free_time_window/free_time_window.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/free_time_window/free_time_window.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/free_time_window/free_time_window.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/info_page/info_page.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/info_page/info_page.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/login_component/SignUP.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/login_component/SignUP.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_page/main_page.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_page/main_page.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../horseWithOsteochondrose/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../horseWithOsteochondrose/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +98,7 @@
       <workItem from="1650639609848" duration="33000" />
       <workItem from="1650894057153" duration="17095000" />
       <workItem from="1651052986272" duration="22990000" />
-      <workItem from="1651131030361" duration="3284000" />
+      <workItem from="1651131030361" duration="26781000" />
     </task>
     <task id="LOCAL-00001" summary="обновление .gitignore">
       <created>1650551561007</created>
@@ -210,7 +212,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651075515698</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="настройка календаря">
+      <created>1651134436702</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1651134436702</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -239,6 +248,7 @@
     <MESSAGE value="высод списка врачей специальности" />
     <MESSAGE value="страница врачей выбранной специальности" />
     <MESSAGE value="добавление календаря" />
-    <option name="LAST_COMMIT_MESSAGE" value="добавление календаря" />
+    <MESSAGE value="настройка календаря" />
+    <option name="LAST_COMMIT_MESSAGE" value="настройка календаря" />
   </component>
 </project>

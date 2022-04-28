@@ -132,10 +132,22 @@
     display: compact;
 }
 
-.app, .react-calendar{
+.react-calendar{
     background: rgba(255, 255, 255, 0.87);
 }
 .app{
     width: 90%;
     margin: 0 auto;
+}
+
+.btn-close{
+    width: 10px;
+    background: rgba(149, 0, 0, 0.34);
+    border: 1px solid #760000;
+    margin-bottom: 0;
+}
+
+.time{
+    display: block;
+    align-self: flex-end;
 }

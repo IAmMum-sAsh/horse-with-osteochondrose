@@ -57,8 +57,10 @@ button:hover{
 .main-important {
     background-size: cover;
     z-index: 0;
-    height: 100vh;
+    min-height: 100vh;
+    max-height: max-content;
     background: url('../pattern-rhomby-spirals.svg') fixed;
+    padding-bottom: 10px;
 }
 
 .baclimgmain {
