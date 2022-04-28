@@ -28,6 +28,9 @@ class Header extends Component {
         const { cookies } = this.props;
         cookies.remove("accessToken"); // remove the cookie
         cookies.remove("refreshToken"); // remove the cookie
+        cookies.remove("name"); // remove the cookie
+        cookies.remove("role"); // remove the cookie
+        cookies.remove("id"); // remove the cookie
     };
 
     async componentDidMount() {
@@ -50,7 +53,12 @@ class Header extends Component {
 
     // строка в шапке
     renderInfoPage() {
-        return <a className='p-2 text-white' href="/about">О проекте</a>;
+        const cookies = new Cookies();
+        let a = cookies.get('accessToken');
+
+        if (a) {
+            return <a className='p-2 text-white' href="/about">Записаться</a>;
+        }
     }
 
     renderMyRecords() {

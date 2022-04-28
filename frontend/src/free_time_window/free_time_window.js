@@ -1,18 +1,16 @@
 import React, {Component} from 'react';
-import Calendar from 'react-calendar';
-// import 'react-calendar/dist/Calendar.css';
-import './calendar.css';
+import './free_time_window.css';
 
 let months = ['янв', 'фев', 'март', 'апр', 'май', 'июн', 'июл', 'авг', 'сент', 'окт', 'нояб', 'дек'];
 
-class Calendarik extends Component {
+class FreeTimeWindow extends Component {
     state = {
-        date: new Date(),
+        time_id: new Date(),
         visibility: false
     }
 
     _onPress = (newDate) => {
-        const name = 'date';
+        const name = 'time_id';
         this.setState({
             [name]: newDate
         });
@@ -34,13 +32,9 @@ class Calendarik extends Component {
                 <div className='calendar-container'>
                     <Calendar onChange={this._onPress} value={this.state.date} />
                 </div>
-                <p className='text-center'>
-                    <span className='bold'>Выбранная дата:</span>{' '}
-                    {nowDate}{' '}{months[nowMonth]}{' '}{nowYear}
-                </p>
             </div>
         );
     }
 }
 
-export default Calendarik;
+export default FreeTimeWindow;

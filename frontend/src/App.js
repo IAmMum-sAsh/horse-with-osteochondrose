@@ -20,9 +20,9 @@ class App extends Component {
         return (
             <BrowserRouter>
                 <Switch>
-                    <Route exact path={'/'} component={MainPage}/>
+                    <Route exact path={'/'} component={InfoPage}/>
 
-                    <Route exact path={'/about'} component={InfoPage}/>
+                    <Route exact path={'/about'} component={MainPage}/>
                     <Route exact path={'/records'} component={UserRecords}/>
                     <Route exact path={'/specs/**'} component={DocBySpec}/>
 

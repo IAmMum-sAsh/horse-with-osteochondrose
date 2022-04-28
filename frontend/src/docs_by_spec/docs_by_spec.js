@@ -3,6 +3,7 @@ import Header from "../header/Header";
 import Cookies from "universal-cookie";
 import Calendarik from "../calendar_component/calendar";
 import './docs_by_spec.css';
+import {element} from "prop-types";
 
 class DocBySpec extends Component {
     constructor(props) {
@@ -12,18 +13,25 @@ class DocBySpec extends Component {
             spec_id: 0,
             selectedDoctor: 0,
             isCalendar: false,
+            date: new Date(),
             code: props.code ? props.code : '999',
             description: props.description ? props.description : 'Unknown error'
         }
     }
 
-    showCalendar = () => {
+    showCalendar = (value) => {
         this.setState({isCalendar: true});
-        console.log(this.state.isCalendar);
+        this.setState({selectedDoctor: value});
+        console.log(this.state.selectedDoctor);
     }
-    hideCalendar = () => {
+    hideCalendar = (value) => {
         this.setState({isCalendar: false});
-        console.log(this.state.isCalendar);
+        this.setState({selectedDoctor: value});
+        console.log(this.state.selectedDoctor);
+    }
+
+    updateData = (value) => {
+        this.setState({ date: value });
     }
 
     async getSpecs() {
@@ -56,10 +64,10 @@ class DocBySpec extends Component {
 
     renderSpecs(){
         // const list = this.state.specs.map(specs => <a className="spec-b">{specs.id} - {specs.name}</a>);
-        const list = this.state.docs.map(doc => <button onClick={this.showCalendar} className="btn btn-primary btn-lg spec-b" id={doc.doctor_id}
+        const list = this.state.docs.map(doc => <button onClick={() => {this.showCalendar(doc.doctor_id)}} className="btn btn-primary btn-lg spec-b" id={doc.doctor_id}
                                                       data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Processing Order">{doc.username}</button>);
         return (
-            <div className="fa-ul">
+            <div className="">
                 {list}
             </div>
         );
@@ -73,10 +81,10 @@ class DocBySpec extends Component {
                 <div className='main-important'>
                     <Header />
                     <div className="container">
-                        <h3>Выберите специальность для записи</h3><button onClick={this.hideCalendar} className="btn btn-primary btn-lg spec-b red" id={0}>Скрыть</button>
+                        <h3>Выберите специалиста для записи</h3><button onClick={this.hideCalendar} className="btn btn-primary btn-lg spec-b red" id={0}>Скрыть</button>
                         {this.renderSpecs()}
                     </div>
-                    <Calendarik show={this.state.isCalendar} date={new Date()}/>
+                    <Calendarik show={this.state.isCalendar} updateData={this.updateData}/>
                 </div>
             </div>
         );

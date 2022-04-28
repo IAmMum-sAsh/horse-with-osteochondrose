@@ -131,3 +131,11 @@
 .vis-true{
     display: compact;
 }
+
+.app, .react-calendar{
+    background: rgba(255, 255, 255, 0.87);
+}
+.app{
+    width: 90%;
+    margin: 0 auto;
+}
