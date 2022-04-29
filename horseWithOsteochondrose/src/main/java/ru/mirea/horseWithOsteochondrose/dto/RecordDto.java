@@ -21,6 +21,8 @@ public class RecordDto {
     protected String time;
     protected String description;
 
+    protected Long doctor_id;
+
     public RecordDto(Record record, String user, String doctor, String polis, String spec, String time){
         this.id = record.getId();
         this.user = user;
@@ -30,5 +32,17 @@ public class RecordDto {
         this.date = record.getDate();
         this.time = time;
         this.description = record.getDescription();
+    }
+
+    public RecordDto(Record record, String user, String doctor, String polis, String spec, String time, Long doctor_id){
+        this.id = record.getId();
+        this.user = user;
+        this.doctor = doctor;
+        this.polis = polis;
+        this.spec = spec;
+        this.date = record.getDate();
+        this.time = time;
+        this.description = record.getDescription();
+        this.doctor_id = doctor_id;
     }
 }

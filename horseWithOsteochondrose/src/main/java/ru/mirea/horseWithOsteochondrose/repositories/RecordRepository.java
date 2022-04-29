@@ -11,7 +11,7 @@ import java.util.List;
 @Repository
 public interface RecordRepository extends JpaRepository<Record, Long> {
     //предстоящие записи пользователя
-    @Query("select b from Record b where b.date > :CURRENT_DATE and b.user_id = :user_id and b.state = true")
+    @Query("select b from Record b where b.date >= :CURRENT_DATE and b.user_id = :user_id and b.state = true")
     List<Record> findUsersRecords(Date CURRENT_DATE, Long user_id);
 
     //записи доктора на число

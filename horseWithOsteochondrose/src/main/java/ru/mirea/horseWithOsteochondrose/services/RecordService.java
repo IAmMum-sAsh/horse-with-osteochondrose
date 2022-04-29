@@ -53,7 +53,7 @@ public class RecordService {
                 recordDtos.add(new RecordDto(record, user.getUsername(),
                         userRepository.findById(doctorRepository.findById(record.getDoctor_id()).get().getUser_id()).get().getUsername(),
                         user.getPolis(), specRepository.findById(record.getSpec_id()).get().getName(),
-                        timeRepository.findById(record.getTime_id()).get().getTime()));
+                        timeRepository.findById(record.getTime_id()).get().getTime(), record.getDoctor_id()));
             }
         }
         return recordDtos;
@@ -111,7 +111,7 @@ public class RecordService {
         RecordDto recordDto = new RecordDto(record, currentUser.getUsername(),
                 userRepository.findById(doctorRepository.findById(record.getDoctor_id()).get().getUser_id()).get().getUsername(),
                 currentUser.getPolis(), specRepository.findById(record.getSpec_id()).get().getName(),
-                timeRepository.findById(record.getTime_id()).get().getTime());
+                timeRepository.findById(record.getTime_id()).get().getTime(), record.getDoctor_id());
         return recordDto;
     }
 
@@ -131,7 +131,7 @@ public class RecordService {
         RecordDto recordDto = new RecordDto(record, currentUser.getUsername(),
                 userRepository.findById(doctorRepository.findById(record.getDoctor_id()).get().getUser_id()).get().getUsername(),
                 currentUser.getPolis(), specRepository.findById(record.getSpec_id()).get().getName(),
-                timeRepository.findById(record.getTime_id()).get().getTime());
+                timeRepository.findById(record.getTime_id()).get().getTime(), record.getDoctor_id());
         return recordDto;
     }
 
@@ -159,7 +159,7 @@ public class RecordService {
         RecordDto recordDto = new RecordDto(record, currentUser.getUsername(),
                 userRepository.findById(doctor.getUser_id()).get().getUsername(),
                 currentUser.getPolis(), specRepository.findById(record.getSpec_id()).get().getName(),
-                timeRepository.findById(record.getTime_id()).get().getTime());
+                timeRepository.findById(record.getTime_id()).get().getTime(), record.getDoctor_id());
         recordDto.setDescription("*******Удалено*******");
         return recordDto;
     }
