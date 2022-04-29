@@ -4,6 +4,8 @@ import Header from "../header/Header";
 import Cookies from "universal-cookie";
 import Calendar from "../my_calendar_component/calendar";
 
+
+
 class MainPage extends Component {
     constructor(props) {
         super(props);
@@ -31,7 +33,6 @@ class MainPage extends Component {
     async componentDidMount() {
         document.title = "Главная"
         let prs = await this.getSpecs();
-        console.log(prs);
         this.setState({specs: prs});
     }
 

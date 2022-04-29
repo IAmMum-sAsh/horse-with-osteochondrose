@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="58be6046-f527-4ceb-a6dc-e54fef1fc51b" name="Default Changelist" comment="настройка календаря">
+    <list default="true" id="58be6046-f527-4ceb-a6dc-e54fef1fc51b" name="Default Changelist" comment="польностью реализовано создание записей">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/calendar_component/calendar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/calendar_component/calendar.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/calendar_component/calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/calendar_component/calendar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/docs_by_spec/docs_by_spec.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/docs_by_spec/docs_by_spec.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/docs_by_spec/docs_by_spec.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/docs_by_spec/docs_by_spec.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/free_time_window/free_time_window.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/free_time_window/free_time_window.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/free_time_window/free_time_window.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/free_time_window/free_time_window.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/info_page/info_page.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/info_page/info_page.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/login_component/SignUP.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/login_component/SignUP.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/header/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main_page/MainPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_page/MainPage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main_page/main_page.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main_page/main_page.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../horseWithOsteochondrose/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../horseWithOsteochondrose/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/user_records/user_records.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/user_records/user_records.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/user_records/user_records.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/user_records/user_records.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../horseWithOsteochondrose/src/main/java/ru/mirea/horseWithOsteochondrose/dto/RecordDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../horseWithOsteochondrose/src/main/java/ru/mirea/horseWithOsteochondrose/dto/RecordDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../horseWithOsteochondrose/src/main/java/ru/mirea/horseWithOsteochondrose/repositories/RecordRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../horseWithOsteochondrose/src/main/java/ru/mirea/horseWithOsteochondrose/repositories/RecordRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../horseWithOsteochondrose/src/main/java/ru/mirea/horseWithOsteochondrose/services/RecordService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../horseWithOsteochondrose/src/main/java/ru/mirea/horseWithOsteochondrose/services/RecordService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,17 +55,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="start" />
@@ -98,7 +86,8 @@
       <workItem from="1650639609848" duration="33000" />
       <workItem from="1650894057153" duration="17095000" />
       <workItem from="1651052986272" duration="22990000" />
-      <workItem from="1651131030361" duration="26781000" />
+      <workItem from="1651131030361" duration="27138000" />
+      <workItem from="1651244553093" duration="8730000" />
     </task>
     <task id="LOCAL-00001" summary="обновление .gitignore">
       <created>1650551561007</created>
@@ -219,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651134436702</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="польностью реализовано создание записей">
+      <created>1651168977797</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1651168977797</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -249,6 +245,7 @@
     <MESSAGE value="страница врачей выбранной специальности" />
     <MESSAGE value="добавление календаря" />
     <MESSAGE value="настройка календаря" />
-    <option name="LAST_COMMIT_MESSAGE" value="настройка календаря" />
+    <MESSAGE value="польностью реализовано создание записей" />
+    <option name="LAST_COMMIT_MESSAGE" value="польностью реализовано создание записей" />
   </component>
 </project>

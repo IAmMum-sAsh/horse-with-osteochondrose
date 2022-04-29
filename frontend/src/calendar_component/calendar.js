@@ -10,8 +10,6 @@ const CreateRecord = (props) => {
     const handleCloseAuthor = () => setAuthorModalShow(false);
     const handleShowAuthor = () => setAuthorModalShow(true);
 
-    console.log('> > > CreateRecords doc_id = ' + props.doctor_id)
-
     let selectedDate = props.date;
     selectedDate.setHours(0);
     selectedDate.setMinutes(0);
@@ -34,7 +32,7 @@ const CreateRecord = (props) => {
                             <Modal.Title>Выберите время</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
-                            <FreeTimeWindow doctor_id={props.doctor_id} date={props.date} /> {/*updateData={this.updateData}*/}
+                            <FreeTimeWindow doctor_id={props.doctor_id} date={props.date} isUpdate={props.isUpdate} record_id={props.record_id}/> {/*updateData={this.updateData}*/}
                         </Modal.Body>
                     </Modal>
                 </Row>
@@ -60,7 +58,6 @@ class Calendarik extends Component {
             [name]: newDate
         });
         this.props.updateData(newDate);
-        console.log('> > calendars doc_id = ' + this.props.doctor_id)
     };
 
 
@@ -83,7 +80,7 @@ class Calendarik extends Component {
                         {nowDate}{' '}{months[nowMonth]}{'('}{nowMonth+1}{') '}{nowYear}
                     </p>
                 </div>
-                <CreateRecord date={this.state.date} doctor_id={this.props.doctor_id} visibility={this.props.show}/>
+                <CreateRecord date={this.state.date} doctor_id={this.props.doctor_id} visibility={this.props.show} isUpdate={this.props.isUpdate} record_id={this.props.record_id}/>
             </>
         );
     }

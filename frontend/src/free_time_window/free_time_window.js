@@ -29,10 +29,22 @@ class FreeTimeWindow extends Component {
         const cookies = new Cookies();
         let a = cookies.get('accessToken');
 
-        console.log('> > > > ' + cre + ' ' + this.props.doctor_id);
-
         return fetch('/api/doctors/' + this.props.doctor_id + '/record', {
             method: 'post',
+            headers: new Headers({
+                'Authorization': 'Bearer ' + a,
+                'Content-Type': 'application/json'
+            }),
+            body: JSON.stringify(cre)
+        }).then(response => response.json());
+    }
+
+    async updateFetch(cre) {
+        const cookies = new Cookies();
+        let a = cookies.get('accessToken');
+
+        return fetch('/api/record/' + this.props.record_id, {
+            method: 'put',
             headers: new Headers({
                 'Authorization': 'Bearer ' + a,
                 'Content-Type': 'application/json'
@@ -52,9 +64,6 @@ class FreeTimeWindow extends Component {
             date
         });
         this.setState({empty_records: prs});
-        console.log('***** Empty Record Response *****' + this.state.empty_records + ' --------- ' + {
-            date
-        }.date);
     }
 
     async record(time_id){
@@ -63,16 +72,23 @@ class FreeTimeWindow extends Component {
         if ((porDate.getMonth()+1).toString().length == 1) mon = '0'+String(porDate.getMonth()+1);
         else mon = String(porDate.getMonth()+1);
         let date = String(porDate.getFullYear()) +'-' + mon + '-' + String(porDate.getDate());
-        let prs = await this.recordFetch({
-            date,
-            time_id
-        });
-        console.log('***** Record Response *****' + prs);
+
+        let prs;
+        if(this.props.isUpdate){
+            prs = await this.updateFetch({
+                date,
+                time_id
+            });
+        } else{
+            prs = await this.recordFetch({
+                date,
+                time_id
+            });
+        }
     }
 
     renderSpecs(){
-        //href="/records"
-        const list = this.state.empty_records.map(rec => <a onClick={() => {this.record(rec.id)}} className="btn btn-primary btn-lg spec-b time" id={rec.id}>{rec.time}</a>);
+        const list = this.state.empty_records.map(rec => <a href={'/records'} onClick={() => {this.record(rec.id)}} className="btn btn-primary btn-lg spec-b time" id={rec.id}>{rec.time}</a>);
         return (
             <div className="">
                 {list}
@@ -84,9 +100,6 @@ class FreeTimeWindow extends Component {
 
     render() {
         let prp = 'vis-'+this.props.show;
-
-        // console.log(this.state.date + ' ' + this.state.doctor_id)
-        // console.log(this.props.date + ' ' + this.props.doctor_id)
 
         return (
             <div className={"app " + prp}>

@@ -20,3 +20,13 @@
 .u{
     font-weight: bold;
 }
+
+.RUNselected{
+    background: rgba(0, 149, 103, 0.34);
+    border: 1px solid #007656;
+}
+
+.Rselected{
+    background: rgba(104, 0, 149, 0.34);
+    border: 1px solid #3b0076;
+}

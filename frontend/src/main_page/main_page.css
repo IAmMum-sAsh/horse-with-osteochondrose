@@ -4,7 +4,7 @@ h3{
 }
 
 .fa-ul{
-    margin: 20px 0 0 10px;
+    margin-left: 0 !important;
 }
 
 .spec-b{

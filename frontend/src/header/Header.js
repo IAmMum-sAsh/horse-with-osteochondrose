@@ -81,6 +81,10 @@ class Header extends Component {
         }
     }
 
+    handler(){
+
+    }
+
     // собираем выпадающее меню
     addFunctions() {
         const cookies = new Cookies();
@@ -90,7 +94,8 @@ class Header extends Component {
             return (
                 <div className="dropdown-child">
                     {this.renderGiveManage()}
-                    <a href="/" onClick={this.handleRemoveCookie} >Выйти</a>
+                    {/*<a onClick={this.handleRemoveCookie} href="/"  >Выйти</a>*/}
+                    <a onClick={() => window.setTimeout(this.handleRemoveCookie, 10)} href="/"  >Выйти</a>
                 </div>
             )
         } else {
