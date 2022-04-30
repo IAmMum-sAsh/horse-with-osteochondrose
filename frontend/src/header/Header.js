@@ -71,18 +71,14 @@ class Header extends Component {
     }
 
     // выпадающее меню
-    renderGiveManage() {
+    renderGiveRole() {
         const cookies = new Cookies();
         let a = cookies.get('accessToken');
-        let b = this.state.role;
+        let b = cookies.get('role');
 
         if (a && (b == "ROLE_ADMIN")) {
-            return <a className='p-2 text-white' href='/give_manage'>Повысить</a>;
+            return <a className='p-2 text-white' href='/give_role'>Выдать права</a>;
         }
-    }
-
-    handler(){
-
     }
 
     // собираем выпадающее меню
@@ -93,8 +89,7 @@ class Header extends Component {
         if (b) {
             return (
                 <div className="dropdown-child">
-                    {this.renderGiveManage()}
-                    {/*<a onClick={this.handleRemoveCookie} href="/"  >Выйти</a>*/}
+                    {this.renderGiveRole()}
                     <a onClick={() => window.setTimeout(this.handleRemoveCookie, 10)} href="/"  >Выйти</a>
                 </div>
             )

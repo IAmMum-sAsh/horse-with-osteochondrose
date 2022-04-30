@@ -13,6 +13,7 @@ import InfoPage from "./info_page/InfoPage";
 import MainPage from "./main_page/MainPage";
 import UserRecords from "./user_records/user_records";
 import DocBySpec from "./docs_by_spec/docs_by_spec";
+import GiveRole from "./give_role/give_role";
 
 class App extends Component {
     render()
@@ -29,7 +30,7 @@ class App extends Component {
                     <Route exact path={'/signup'} component={SignUP}/>
                     <Route exact path={'/login'} component={Login}/>
                     <Route exact path={'/my_calendar'} component={MyCalendar}/>
-                    <Route exact path={'/calendar'} component={Calendarik}/>
+                    <Route exact path={'/give_role'} component={GiveRole}/>
 
                     <Route>
                         <ErrorPage code={404} description={'Страница не найдена.'}/>
