@@ -1,0 +1,11 @@
+.text{
+    width: 100%;
+    margin: 10px 0;
+}
+
+.b{
+    text-decoration: underline black;
+}
+.b:hover{
+    cursor: pointer;
+}

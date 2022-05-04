@@ -81,6 +81,16 @@ class Header extends Component {
         }
     }
 
+    renderFutureRecords() {
+        const cookies = new Cookies();
+        let a = cookies.get('accessToken');
+        let b = cookies.get('role');
+
+        if (a && (b == "ROLE_DOCTOR")) {
+            return <a className='p-2 text-white' href='/future_records'>Предстоящие записи</a>;
+        }
+    }
+
     // собираем выпадающее меню
     addFunctions() {
         const cookies = new Cookies();
@@ -90,6 +100,7 @@ class Header extends Component {
             return (
                 <div className="dropdown-child">
                     {this.renderGiveRole()}
+                    {this.renderFutureRecords()}
                     <a onClick={() => window.setTimeout(this.handleRemoveCookie, 10)} href="/"  >Выйти</a>
                 </div>
             )

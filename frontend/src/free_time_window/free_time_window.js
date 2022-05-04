@@ -57,9 +57,11 @@ class FreeTimeWindow extends Component {
         document.title = "Главная"
         let porDate = new Date(this.props.date);
         let mon;
+        let day;
         if ((porDate.getMonth()+1).toString().length == 1) mon = '0'+String(porDate.getMonth()+1);
+        if ((porDate.getDate()).toString().length == 1) day = '0'+String(porDate.getDate());
         else mon = String(porDate.getMonth()+1);
-        let date = String(porDate.getFullYear()) +'-' + mon + '-' + String(porDate.getDate());
+        let date = String(porDate.getFullYear()) +'-' + mon + '-' + day;
         let prs = await this.getEmptyRecords({
             date
         });
@@ -69,9 +71,11 @@ class FreeTimeWindow extends Component {
     async record(time_id){
         let porDate = new Date(this.props.date);
         let mon;
+        let day;
+        if ((porDate.getDate()).toString().length == 1) day = '0'+String(porDate.getDate());
         if ((porDate.getMonth()+1).toString().length == 1) mon = '0'+String(porDate.getMonth()+1);
         else mon = String(porDate.getMonth()+1);
-        let date = String(porDate.getFullYear()) +'-' + mon + '-' + String(porDate.getDate());
+        let date = String(porDate.getFullYear()) +'-' + mon + '-' + day;
 
         let prs;
         if(this.props.isUpdate){
