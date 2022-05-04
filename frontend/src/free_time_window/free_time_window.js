@@ -58,23 +58,26 @@ class FreeTimeWindow extends Component {
         let porDate = new Date(this.props.date);
         let mon;
         let day;
-        if ((porDate.getMonth()+1).toString().length == 1) mon = '0'+String(porDate.getMonth()+1);
-        if ((porDate.getDate()).toString().length == 1) day = '0'+String(porDate.getDate());
+        if ((porDate.getMonth()+1).toString().length == 1) mon = '0'+String(porDate.getMonth()+1)
         else mon = String(porDate.getMonth()+1);
+        if ((porDate.getDate()).toString().length == 1) day = '0'+String(porDate.getDate())
+        else day = String(porDate.getDate());
         let date = String(porDate.getFullYear()) +'-' + mon + '-' + day;
+        console.log('date >>> ' + date);
         let prs = await this.getEmptyRecords({
             date
         });
-        this.setState({empty_records: prs});
+        await this.setState({empty_records: prs});
     }
 
     async record(time_id){
         let porDate = new Date(this.props.date);
         let mon;
         let day;
-        if ((porDate.getDate()).toString().length == 1) day = '0'+String(porDate.getDate());
-        if ((porDate.getMonth()+1).toString().length == 1) mon = '0'+String(porDate.getMonth()+1);
+        if ((porDate.getMonth()+1).toString().length == 1) mon = '0'+String(porDate.getMonth()+1)
         else mon = String(porDate.getMonth()+1);
+        if ((porDate.getDate()).toString().length == 1) day = '0'+String(porDate.getDate())
+        else day = String(porDate.getDate());
         let date = String(porDate.getFullYear()) +'-' + mon + '-' + day;
 
         let prs;
@@ -92,6 +95,7 @@ class FreeTimeWindow extends Component {
     }
 
     renderSpecs(){
+        console.log(this.state.empty_records);
         const list = this.state.empty_records.map(rec => <a href={'/records'} onClick={() => {this.record(rec.id)}} className="btn btn-primary btn-lg spec-b time" id={rec.id}>{rec.time}</a>);
         return (
             <div className="">
