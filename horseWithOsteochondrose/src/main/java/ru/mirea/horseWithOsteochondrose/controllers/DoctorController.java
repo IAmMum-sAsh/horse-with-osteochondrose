@@ -37,7 +37,7 @@ public class DoctorController {
 
     @GetMapping("/record/{id}")
     public ResponseEntity<RecordDto> doctorsRecord(@PathVariable long id){
-        List<RecordDto> recordDtos = doctorService.doctorsRecords();
+        List<RecordDto> recordDtos = doctorService.doctorsAllRecords();
         RecordDto recordDto = new RecordDto();
         for(RecordDto dto : recordDtos){
             if(dto.getId() == id){
@@ -47,7 +47,7 @@ public class DoctorController {
         if(recordDto.getId() != null){
             return ResponseEntity.ok(recordDto);
         }
-        else{return null;}
+        else{return ResponseEntity.ok(new RecordDto());}
 
     }
 
