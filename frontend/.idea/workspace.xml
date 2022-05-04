@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="58be6046-f527-4ceb-a6dc-e54fef1fc51b" name="Default Changelist" comment="изменение и удаление записей">
-      <change afterPath="$PROJECT_DIR$/src/give_role/give_role.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/give_role/give_role.js" afterDir="false" />
+    <list default="true" id="58be6046-f527-4ceb-a6dc-e54fef1fc51b" name="Default Changelist" comment="начало разработки страницы выдачи прав">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/header/Header.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/give_role/give_role.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/give_role/give_role.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/give_role/give_role.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/give_role/give_role.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,17 +46,6 @@
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="start" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/package.json" />
       <command value="start" />
@@ -92,7 +79,8 @@
       <workItem from="1651052986272" duration="22990000" />
       <workItem from="1651131030361" duration="27138000" />
       <workItem from="1651244553093" duration="8837000" />
-      <workItem from="1651307679491" duration="1645000" />
+      <workItem from="1651307679491" duration="1712000" />
+      <workItem from="1651655183585" duration="3512000" />
     </task>
     <task id="LOCAL-00001" summary="обновление .gitignore">
       <created>1650551561007</created>
@@ -227,7 +215,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651253411793</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="начало разработки страницы выдачи прав">
+      <created>1651309372966</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1651309372966</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,6 +254,7 @@
     <MESSAGE value="настройка календаря" />
     <MESSAGE value="польностью реализовано создание записей" />
     <MESSAGE value="изменение и удаление записей" />
-    <option name="LAST_COMMIT_MESSAGE" value="изменение и удаление записей" />
+    <MESSAGE value="начало разработки страницы выдачи прав" />
+    <option name="LAST_COMMIT_MESSAGE" value="начало разработки страницы выдачи прав" />
   </component>
 </project>
