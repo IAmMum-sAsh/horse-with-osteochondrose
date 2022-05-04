@@ -45,7 +45,7 @@ const CreateRecord = (props) => {
                             <Modal.Title>История пациента</Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
-                            {list}
+                            {list.length == 0 ? <div className="fa-ul text-center"> &lt;&lt;Пусто&gt;&gt;</div> : list}
                         </Modal.Body>
                     </Modal>
                 </Row>

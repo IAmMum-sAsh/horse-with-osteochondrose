@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="58be6046-f527-4ceb-a6dc-e54fef1fc51b" name="Default Changelist" comment="функционал врача">
+    <list default="true" id="58be6046-f527-4ceb-a6dc-e54fef1fc51b" name="Default Changelist" comment="корректное отображение заключения врача">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/record_by_id/record_by_id.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/record_by_id/record_by_id.js" afterDir="false" />
     </list>
@@ -92,7 +92,7 @@
       <workItem from="1651131030361" duration="27138000" />
       <workItem from="1651244553093" duration="8837000" />
       <workItem from="1651307679491" duration="1712000" />
-      <workItem from="1651655183585" duration="19239000" />
+      <workItem from="1651655183585" duration="19473000" />
     </task>
     <task id="LOCAL-00001" summary="обновление .gitignore">
       <created>1650551561007</created>
@@ -248,7 +248,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651676975556</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="корректное отображение заключения врача">
+      <created>1651677466288</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1651677466288</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -283,6 +290,7 @@
     <MESSAGE value="начало разработки страницы выдачи прав" />
     <MESSAGE value="реализована выдача прав" />
     <MESSAGE value="функционал врача" />
-    <option name="LAST_COMMIT_MESSAGE" value="функционал врача" />
+    <MESSAGE value="корректное отображение заключения врача" />
+    <option name="LAST_COMMIT_MESSAGE" value="корректное отображение заключения врача" />
   </component>
 </project>
