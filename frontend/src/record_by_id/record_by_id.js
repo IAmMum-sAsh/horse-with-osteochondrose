@@ -14,19 +14,24 @@ const CreateRecord = (props) => {
     let list;
 
     list = props.history.map(record =>
-        <>
-            <div className={"card "}>
-                <span className="comp-name">Запись №{record.id}</span>
-                <div className="card-body">
-                    <p>Записан <span className="u">{record.user}</span> ({record.polis})</p>
-                    <p>К <span className="u">{record.doctor}</span> ({record.spec})</p>
-                    <p><span className="u">{new Date(record.date).getDate()} {months[new Date(record.date).getMonth()]} {new Date(record.date).getFullYear()} {record.time}</span></p>
-                </div>
+        <div className={"card "}>
+            <span className="comp-name">Запись №{record.id}</span>
+            <div className="card-body">
+                <p>Записан <span className="u">{record.user}</span> ({record.polis})</p>
+                <p>К <span className="u">{record.doctor}</span> ({record.spec})</p>
+                <p><span className="u">{new Date(record.date).getDate()} {months[new Date(record.date).getMonth()]} {new Date(record.date).getFullYear()} {record.time}</span></p>
+                <p><span className="u">Заключение:</span>
+                    {record.description == '' ?
+                        <div className="fa-ul ">
+                            &lt;&lt;Пусто&gt;&gt;
+                        </div> :
+                        <><br/>{record.description}</>
+                    }
+                </p>
+
             </div>
-        </>
+        </div>
     );
-
-
 
     return(
         <>
@@ -155,7 +160,7 @@ class RecordPage extends Component {
                         <div className={"card "}>
                             <span className="comp-name">Запись №{record.id}</span>
                             <div className="card-body">
-                                <a onClick={async () => {this.getUserHistory()}} id={'unic_id'}><CreateRecord  history={this.state.history} user_name={record.user} polis={record.polis} /></a>
+                                <a onClick={async () => {await this.getUserHistory()}} id={'unic_id'}><CreateRecord history={this.state.history} user_name={record.user} polis={record.polis} /></a>
                                 <p>К <span className="u">{record.doctor}</span> ({record.spec})</p>
                                 <p><span className="u">{new Date(record.date).getDate()} {months[new Date(record.date).getMonth()]} {new Date(record.date).getFullYear()} {record.time}</span></p>
                             </div>

@@ -1,17 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="58be6046-f527-4ceb-a6dc-e54fef1fc51b" name="Default Changelist" comment="реализована выдача прав">
-      <change afterPath="$PROJECT_DIR$/src/future_records/future_records.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/future_records/future_records.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/record_by_id/record_by_id.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/record_by_id/record_by_id.js" afterDir="false" />
+    <list default="true" id="58be6046-f527-4ceb-a6dc-e54fef1fc51b" name="Default Changelist" comment="функционал врача">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/free_time_window/free_time_window.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/free_time_window/free_time_window.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/header/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../horseWithOsteochondrose/src/main/java/ru/mirea/horseWithOsteochondrose/controllers/DoctorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../horseWithOsteochondrose/src/main/java/ru/mirea/horseWithOsteochondrose/controllers/DoctorController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../horseWithOsteochondrose/src/main/java/ru/mirea/horseWithOsteochondrose/dto/RecordDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../horseWithOsteochondrose/src/main/java/ru/mirea/horseWithOsteochondrose/dto/RecordDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/record_by_id/record_by_id.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/record_by_id/record_by_id.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,7 +92,7 @@
       <workItem from="1651131030361" duration="27138000" />
       <workItem from="1651244553093" duration="8837000" />
       <workItem from="1651307679491" duration="1712000" />
-      <workItem from="1651655183585" duration="18734000" />
+      <workItem from="1651655183585" duration="19239000" />
     </task>
     <task id="LOCAL-00001" summary="обновление .gitignore">
       <created>1650551561007</created>
@@ -249,7 +241,14 @@
       <option name="project" value="LOCAL" />
       <updated>1651659314384</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="функционал врача">
+      <created>1651676975556</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1651676975556</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -283,6 +282,7 @@
     <MESSAGE value="изменение и удаление записей" />
     <MESSAGE value="начало разработки страницы выдачи прав" />
     <MESSAGE value="реализована выдача прав" />
-    <option name="LAST_COMMIT_MESSAGE" value="реализована выдача прав" />
+    <MESSAGE value="функционал врача" />
+    <option name="LAST_COMMIT_MESSAGE" value="функционал врача" />
   </component>
 </project>
