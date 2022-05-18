@@ -1,2 +1,3 @@
 # horse-with-osteochondrose
-Курсовая работа
+**Репозиторий для размещения курсовой работы**<br>Студента РТУ МИРЭА 3 курса<br>Витухиной Натальи Александровны<br>на тему **"Разработка клиент-серверного фуллстек-приложения для управления больницей с использованием Spring Boot и React""**
+> Отчёт о выполнении КР -> [Word](https://docs.google.com/document/d/1TAyUvZbpxQjHwH7pqx9caeYeKnqiQ0C3/edit?usp=sharing&ouid=117766066713221201127&rtpof=true&sd=true "Word") / [PDF](https://drive.google.com/file/d/13LhGAL8IgAGsUqb-5uELBptsCKXvWe4f/view?usp=sharing "PDF") / [Антиплагиат](https://drive.google.com/file/d/1Thfl_pB28ZzRatT1rS-LJBKTL_8NHJYx/view?usp=sharing "Антиплагиат")
